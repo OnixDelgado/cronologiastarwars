@@ -1,0 +1,651 @@
+/* Estilos generales */
+:root {
+    --primary-color: #121212;
+    --secondary-color: #f5f5f5;
+    --text-color: #e0e0e0;
+    --dark-bg: #1a1a1a;
+    --section-bg: #2a2a2a;
+    --timeline-dot-border: #121212;
+    
+    /* Colores por tipo de contenido */
+    --movie-color: #55ff55; /* Verde para películas */
+    --live-action: #ffe81f; /* Amarillo para live action */
+    --animated: #ff8c00; /* Naranja para animadas */
+    --forces: #ff69b4; /* Rosa fuerte para Forces of Destiny */
+    --game: #aa55ff; /* Violeta para juegos */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1471&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--live-action);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 3px solid var(--live-action);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?q=80&w=1528&auto=format&fit=crop') center/cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Navegación */
+nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: var(--live-action);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--live-action);
+    color: var(--primary-color);
+}
+
+/* Contenido principal */
+main {
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 8px;
+    margin: 2rem auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+
+section h2 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--live-action);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--live-action);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.era-description {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+#intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: rgba(18, 18, 18, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid var(--live-action);
+}
+
+#intro h2 {
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+/* Timeline items */
+.timeline-item {
+    position: relative;
+    padding: 1.5rem 2rem 1.5rem 3rem;
+    margin-bottom: 2rem;
+    background-color: rgba(42, 42, 42, 0.8);
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-item h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.timeline-item ul {
+    list-style-position: inside;
+    padding-left: 0.5rem;
+}
+
+.timeline-item li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline-item li::before {
+    content: "•";
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.timeline-item strong {
+    font-weight: 700;
+}
+
+/* Estilos específicos por tipo de contenido */
+.timeline-item.movie {
+    border-left: 4px solid var(--movie-color);
+}
+.timeline-item.movie h3,
+.timeline-item.movie strong {
+    color: var(--movie-color);
+}
+.timeline-item.movie li::before {
+    color: var(--movie-color);
+}
+.timeline-item.movie:hover {
+    box-shadow: 0 5px 15px rgba(85, 255, 85, 0.2);
+}
+
+.timeline-item.live-action {
+    border-left: 4px solid var(--live-action);
+}
+.timeline-item.live-action h3,
+.timeline-item.live-action strong {
+    color: var(--live-action);
+}
+.timeline-item.live-action li::before {
+    color: var(--live-action);
+}
+.timeline-item.live-action:hover {
+    box-shadow: 0 5px 15px rgba(255, 232, 31, 0.2);
+}
+
+.timeline-item.animated {
+    border-left: 4px solid var(--animated);
+}
+.timeline-item.animated h3,
+.timeline-item.animated strong {
+    color: var(--animated);
+}
+.timeline-item.animated li::before {
+    color: var(--animated);
+}
+.timeline-item.animated:hover {
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+}
+
+.timeline-item.forces {
+    border-left: 4px solid var(--forces);
+}
+.timeline-item.forces h3,
+.timeline-item.forces strong {
+    color: var(--forces);
+}
+.timeline-item.forces li::before {
+    color: var(--forces);
+}
+.timeline-item.forces:hover {
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.timeline-item.game {
+    border-left: 4px solid var(--game);
+}
+.timeline-item.game h3,
+.timeline-item.game strong {
+    color: var(--game);
+}
+.timeline-item.game li::before {
+    color: var(--game);
+}
+.timeline-item.game:hover {
+    box-shadow: 0 5px 15px rgba(170, 85, 255, 0.2);
+}
+
+/* Línea de tiempo en versión desktop */
+@media (min-width: 768px) {
+    .timeline-item {
+        margin-left: 50px;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid var(--timeline-dot-border);
+        z-index: 1;
+    }
+
+    .timeline-item.movie::before {
+        background-color: var(--movie-color);
+    }
+    .timeline-item.live-action::before {
+        background-color: var(--live-action);
+    }
+    .timeline-item.animated::before {
+        background-color: var(--animated);
+    }
+    .timeline-item.forces::before {
+        background-color: var(--forces);
+    }
+    .timeline-item.game::before {
+        background-color: var(--game);
+    }
+
+    /* Línea vertical */
+    #era-republica .timeline-item::after,
+    #era-imperio .timeline-item::after,
+    #era-nueva-republica .timeline-item::after,
+    #era-resistencia .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: -21px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--live-action);
+    }
+
+    /* Ajustar altura del último elemento */
+    #era-republica .timeline-item:last-child::after,
+    #era-imperio .timeline-item:last-child::after,
+    #era-nueva-republica .timeline-item:last-child::after,
+    #era-resistencia .timeline-item:last-child::after {
+        height: 20px;
+    }
+}
+
+/* Leyenda de colores */
+.leyenda-colores {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.leyenda-colores h3 {
+    margin-bottom: 0.5rem;
+    color: white;
+    border-bottom: none;
+}
+
+.leyenda-colores ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    justify-content: center;
+}
+
+.leyenda-colores li {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.leyenda-movie {
+    background-color: var(--movie-color);
+    color: black;
+}
+
+.leyenda-live-action {
+    background-color: var(--live-action);
+    color: black;
+}
+
+.leyenda-animated {
+    background-color: var(--animated);
+    color: black;
+}
+
+.leyenda-forces {
+    background-color: var(--forces);
+    color: black;
+}
+
+.leyenda-game {
+    background-color: var(--game);
+    color: black;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--live-action);
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.3rem 0;
+    }
+
+    .timeline-item {
+        padding: 1.2rem;
+    }
+    
+    .leyenda-colores ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Estilos generales (mantén los anteriores) */
+
+/* Filtros */
+.filtros-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    position: static;
+    top: 60px; /* Ajusta según la altura de tu nav */
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.filtro-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.filtro-option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filtro-checkbox {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.filtro-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Estilos específicos para cada filtro */
+.filtro-label.pelicula {
+    color: var(--movie-color);
+}
+
+.filtro-label.live-action {
+    color: var(--live-action);
+}
+
+.filtro-label.animada {
+    color: var(--animated);
+}
+
+.filtro-label.forces {
+    color: var(--forces);
+}
+
+.filtro-label.juego {
+    color: var(--game);
+}
+
+/* Ocultar elementos filtrados */
+.timeline-item.hidden {
+    display: none;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filtro-option {
+        width: 100%;
+    }
+    
+    .filtros-container {
+        top: auto; /* En móviles el filtro no es sticky */
+        position: relative;
+    }
+}
+
+/* Estilos para el contenedor sticky */
+.nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Menú principal */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.main-nav li {
+    margin: 0 1rem;
+}
+
+.main-nav a {
+    color: var(--live-action);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: white;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--live-action);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Filtros */
+.filtros-container {
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--live-action);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+    
+    .main-nav li {
+        margin: 0.3rem 0;
+        text-align: center;
+    }
+    
+    .main-nav a {
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+    
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filtro-option {
+        width: 100%;
+    }
+}
