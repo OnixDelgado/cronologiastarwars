@@ -11,8 +11,17 @@
     --movie-color: #55ff55; /* Verde para películas */
     --live-action: #ffe81f; /* Amarillo para live action */
     --animated: #ff8c00; /* Naranja para animadas */
-    --forces: #ff69b4; /* Rosa fuerte para Forces of Destiny */
+    --cortos: #ff69b4; /* Rosa fuerte para Forces of Destiny */
     --game: #aa55ff; /* Violeta para juegos */
+
+    --temporada-1: #f5cd6b;
+    --temporada-2: #c62f33;
+    --temporada-3: #9d96af;
+    --temporada-4: #4c74f3;
+    --temporada-5: #f16408;
+    --temporada-6: #ab8106;
+    --temporada-7: #d22b28;
+    /* ... colores para otras temporadas */
 }
 
 * {
@@ -193,6 +202,7 @@ section h2 {
     margin-bottom: 0.5rem;
     position: relative;
     padding-left: 1.5rem;
+    list-style: none;
 }
 
 .timeline-item li::before {
@@ -217,6 +227,7 @@ section h2 {
 .timeline-item.movie li::before {
     color: var(--movie-color);
 }
+
 .timeline-item.movie:hover {
     box-shadow: 0 5px 15px rgba(85, 255, 85, 0.2);
 }
@@ -249,17 +260,17 @@ section h2 {
     box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
 }
 
-.timeline-item.forces {
-    border-left: 4px solid var(--forces);
+.timeline-item.cortos {
+    border-left: 4px solid var(--cortos);
 }
-.timeline-item.forces h3,
-.timeline-item.forces strong {
-    color: var(--forces);
+.timeline-item.cortos h3,
+.timeline-item.cortos strong {
+    color: var(--cortos);
 }
-.timeline-item.forces li::before {
-    color: var(--forces);
+.timeline-item.cortos li::before {
+    color: var(--cortos);
 }
-.timeline-item.forces:hover {
+.timeline-item.cortos:hover {
     box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
 }
 
@@ -275,6 +286,65 @@ section h2 {
 }
 .timeline-item.game:hover {
     box-shadow: 0 5px 15px rgba(170, 85, 255, 0.2);
+}
+
+/* Estilos para los bullets de cada temporada */
+.temporada-1::before {
+    color: var(--temporada-1) !important; /* Verde para temporada 1 */
+}
+
+.temporada-2::before {
+    color: var(--temporada-2) !important; /* Azul para temporada 2 */
+}
+
+.temporada-3::before {
+    color: var(--temporada-3) !important; /* Magenta para temporada 3 */
+}
+
+.temporada-4::before {
+    color: var(--temporada-4) !important; /* Amarillo para temporada 4 */
+}
+
+.temporada-5::before {
+    color: var(--temporada-5) !important; /* Cyan para temporada 5 */
+}
+
+.temporada-6::before {
+    color: var(--temporada-6) !important; /* Naranja para temporada 6 */
+}
+
+.temporada-7::before {
+    color: var(--temporada-7) !important; /* Verde lima para temporada 7 */
+}
+
+/*Modificar estilo de links*/
+
+/* Estilos para enlaces dentro de timeline-item */
+.timeline-item a {
+    color: #4fc3f7 !important; /* Color azul claro - puedes cambiarlo */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 1px dotted currentColor; /* Subrayado punteado */
+}
+
+.timeline-item a:hover {
+    color: #ffeb3b; /* Color amarillo al pasar el mouse */
+    border-bottom-style: solid; /* Subrayado continuo al hover */
+    text-shadow: 0 0 5px rgba(255, 235, 59, 0.5); /* Efecto de brillo */
+}
+
+/* Estilos específicos para enlaces en items animados */
+.timeline-item.animated a {
+    color: var(--animated); /* Usa el color naranja de las animadas */
+}
+
+.timeline-item.animated a:hover {
+    color: #ffe81f; /* Amarillo al hover */
+}
+
+.timeline-item a:visited {
+    color: #4fc3f7; /* Mismo color que en estado normal */
 }
 
 /* Línea de tiempo en versión desktop */
@@ -304,8 +374,8 @@ section h2 {
     .timeline-item.animated::before {
         background-color: var(--animated);
     }
-    .timeline-item.forces::before {
-        background-color: var(--forces);
+    .timeline-item.cortos::before {
+        background-color: var(--cortos);
     }
     .timeline-item.game::before {
         background-color: var(--game);
@@ -377,8 +447,8 @@ section h2 {
     color: black;
 }
 
-.leyenda-forces {
-    background-color: var(--forces);
+.leyenda-cortos {
+    background-color: var(--cortos);
     color: black;
 }
 
@@ -498,8 +568,8 @@ html {
     color: var(--animated);
 }
 
-.filtro-label.forces {
-    color: var(--forces);
+.filtro-label.cortos {
+    color: var(--cortos);
 }
 
 .filtro-label.juego {
@@ -606,6 +676,43 @@ html {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+}
+
+/*Estilos por temporada de Clone Wars*/
+
+.timeline-item.animated li.temporada-1,
+    .timeline-item.animated li.temporada-1 strong {
+        color: var(--temporada-1);
+}
+
+.timeline-item.animated li.temporada-2,
+    .timeline-item.animated li.temporada-2 strong {
+        color: var(--temporada-2);
+}
+
+.timeline-item.animated li.temporada-3,
+    .timeline-item.animated li.temporada-3 strong {
+        color: var(--temporada-3);
+}
+
+.timeline-item.animated li.temporada-4,
+    .timeline-item.animated li.temporada-4 strong {
+        color: var(--temporada-4);
+}
+
+.timeline-item.animated li.temporada-5,
+    .timeline-item.animated li.temporada-5 strong {
+        color: var(--temporada-5);
+}
+
+.timeline-item.animated li.temporada-6,
+    .timeline-item.animated li.temporada-6 strong {
+        color: var(--temporada-6);
+}
+
+.timeline-item.animated li.temporada-7,
+    .timeline-item.animated li.temporada-7 strong {
+        color: var(--temporada-7);
 }
 
 /* Responsive */
