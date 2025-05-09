@@ -37,6 +37,11 @@
     <div class="filtros-container">
         <div class="container">
             <h3>Filtrar contenido:</h3>
+            
+            <button class="filtro-toggle" aria-label="Mostrar/Ocultar filtros">
+                <i class="fas fa-filter"></i>
+            </button>
+            
             <div class="filtros">
                 <label class="filtro-option">
                     <input type="checkbox" class="filtro-checkbox" data-category="movie" checked> 
@@ -86,49 +91,51 @@
 
         <section id="era-republica">
             <h2>Era de la República</h2>
-            <p class="era-description">Desde los inicios de la República hasta el fin de la Guerra de los Clones, ósea en "La Venganza de los Sith" (Película 3)</p>
+            <p class="era-description"></p>
             
             <article class="timeline-item live-action" data-categories="live-action">
                 <h3>Serie "The Acolyte" (Temporada 1)</h3>
                 <ul>
-                    <li><strong>87 años antes de "La Amenaza Fantasma" (Pelicula 1)</strong><br><br>- Historia de un grupo de Jedis en una época dorada y de paz.</li>
+                    <li><strong>87 años antes de "La Amenaza Fantasma" (Película 1)</strong><br><br>- Historia de un grupo de Jedis en una época dorada y de paz.</li>
                 </ul>
             </article>
             
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "Historias de los Jedi" - Capítulo 2 [Justice]</h3>
                 <ul>
-                    <li><strong>12 años antes de "La Amenaza Fantasma" (Pelicula 1)</strong><br><br>- El Conde Dooku y su aprendiz Qui-Gon Jinn son enviados a un planeta.</li>
+                    <li><strong>12 años antes de "La Amenaza Fantasma" (Película 1)</strong><br><br>- El Conde Dooku y su aprendiz Qui-Gon Jinn son enviados a un planeta.</li>
                 </ul>
             </article>
             
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "Historias de los Jedi" - Capítulo 3 [Choices]</h3>
                 <ul>
-                    <li><strong>9 años antes de "La Amenaza Fantasma" (Pelicula 1)</strong><br><br>- El Conde Dooku y Mace Windu investigan un planeta.</li>
+                    <li><strong>9 años antes de "La Amenaza Fantasma" (Película 1)</strong><br><br>- El Conde Dooku y Mace Windu investigan un planeta.</li>
                 </ul>
             </article>
             
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "Historias de los Jedi" - Capítulo 1 [Life and Death]</h3>
                 <ul>
-                    <li><strong>4 años antes de "La Amenaza Fantasma" (Pelicula 1)</strong><br><br>- Nace Ahsoka Tano.</li>
+                    <li><strong>4 años antes de "La Amenaza Fantasma" (Película 1)</strong><br><br>- Nace Ahsoka Tano.</li>
                 </ul>
             </article>
             
             <article class="timeline-item movie" data-categories="movie">
-                <h3>Episodio I: "La Amenaza Fantasma" (Pelicula 1)</h3>
+                <h3>Episodio I: "La Amenaza Fantasma" (Película 1)</h3>
                 - Los Sith se muestran publicamente.</li>
             </article>
             
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "Historias de los Jedi" - Capítulo 4 [The Sith Lord]</h3>
                 <ul>
-                    <li><strong>Sucede al mismo tiempo que "La Amenaza Fantasma" (Pelicula 1)</strong><br><br>- El Conde Dooku abandona la Orden Jedi.</li>
+                    <li><strong>Sucede al mismo tiempo que "La Amenaza Fantasma" (Película 1)</strong><br><br>- El Conde Dooku abandona la Orden Jedi.</li>
                 </ul>
             </article>
             
-            <p class="era-description">Pasan 10 años...</p>
+            <p class="era-description">
+                Pasan 10 años...
+            </p>
 
             <article class="timeline-item cortos" data-categories="cortos">
                 <h3>Serie "Forces of Destiny" - Temporada 2 - Capítulo 10 [Malentendido monstruoso]</h3>
@@ -137,12 +144,12 @@
             <article class="timeline-item movie" data-categories="movie">
                 <h3>Episodio II: "El Ataque de los Clones" (Película 2)</h3>
                 <ul>
-                    <li><strong>Sucede 10 años despues de "La Amenaza Fantasma" (Pelicula 1)</strong><br><br>- Comienza la Guerra de los Clones</li>
+                    <li><strong>Sucede 10 años despues de "La Amenaza Fantasma" (Película 1)</strong><br><br>- Comienza la Guerra de los Clones</li>
                 </ul>
             </article>
             
-            <p class="era-description">La serie de Clone Wars no salió en orden lineal, aquí te explico como verla correctamente</p>
-            <p class="era-description">Existen 2 series llamadas Clone Wars, una en 2D y otra en 3D, la canonica es la 3D</p>
+            <p class="era-description" data-categories="animated">La serie de Clone Wars no salió en orden lineal, aquí te explico como verla correctamente</p>
+            <p class="era-description" data-categories="animated">Existen 2 series llamadas Clone Wars, una en 2D y otra en 3D, la canonica es la 3D</p>
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "The Clone Wars"</h3>
                 <ul>
@@ -152,7 +159,7 @@
             </article>
 
             <article class="timeline-item animated" data-categories="animated">
-                <h3>Pelicula: "La Guerra de los Clones" (Pelicula Animada)</h3>
+                <h3>Película: "La Guerra de los Clones" (Película Animada)</h3>
                 <ul>
                     <li><strong>Sucede a continuacion del Capítulo 16 de la Temporada 1 de The Clone Wars</strong><br><br>- Se une un nuevo integrante a Obi-Wan Kenobi y Anakin Skywalker</li>
                 </ul>
@@ -222,7 +229,7 @@
                     </article>
 
                     
-                    <article class="timeline-item animated">
+                    <article class="timeline-item animated" data-categories="animated">
                     <h3>Serie "The Clone Wars"</h3>
                     <li class="temporada-3"><strong>Temporada 3 - Capítulo 10 [Héroes de ambos lados]</strong></li>
                     <li class="temporada-3"><strong>Temporada 3 - Capítulo 11 [Perseguir paz]</strong></li>
@@ -259,15 +266,14 @@
                     <li class="temporada-4"><strong>Temporada 4 - Capítulo 19 [Masacre]</strong></li>
                 </article>
 
-                <article class="timeline-item animated" 
-                data-categories="animated">
+                <article class="timeline-item animated" data-categories="animated">
                     <h3>Serie “Historias del Imperio” - Capitulo 1 [El Camino del Miedo]</h3>
                     <ul>
                         <li><strong>Pasa al mismo tiempo que el General Grievous realiza la Masacre</strong><br><br>- Una Bruja Sobrevive a la masacre de General Grievous (Morgan Elsbeth).</li>
                     </ul>
                 </article>
 
-                <article class="timeline-item animated">
+                <article class="timeline-item animated" data-categories="animated">
                     <h3>Serie "The Clone Wars"</h3>
                     <li class="temporada-4"><strong>Temporada 4 - Capítulo 20 [Generosidad]</strong></li>
                     <li class="temporada-4"><strong>Temporada 4 - Capítulo 21 [Hermanos]</strong></li>
@@ -290,7 +296,7 @@
                     <li class="temporada-5"><strong>Temporada 5 - Capítulo 16 [Los sin ley]</strong></li>
                     </article>
 
-                    <p class="era-description">Esta es la única vez que se mostrara un comic en toda la lista, ya que es el único medio por el momento que explica que paso con Darth Maul al ser capturado por Darth Sidious</p>
+                    <p class="era-description" data-categories="animated">Esta es la única vez que se mostrara un comic en toda la lista, ya que es el único medio por el momento que explica que paso con Darth Maul al ser capturado por Darth Sidious</p>
 
                     <article class="timeline-item animated" data-categories="animated">
                         <h3>4 Comics de Darth Maul llamado "Hijo de Dathomir"</h3>
@@ -299,7 +305,7 @@
                         </ul>
                     </article>
 
-                    <article class="timeline-item animated">
+                    <article class="timeline-item animated" data-categories="animated">
                     <h3>Serie "The Clone Wars"</h3>
                     <li class="temporada-5"><strong>Temporada 5 - Capítulo 17 [Sabotaje]</strong></li>
                     <li class="temporada-5"><strong>Temporada 5 - Capítulo 18 [El Jedi que sabía demasiado]</strong></li>
@@ -330,9 +336,9 @@
             </article>
         
             <article class="timeline-item movie" data-categories="movie">
-                <h3>Episodio III: "Star Wars: "La Venganza de los Sith" (Película 3)" (Pelicula 3)</h3>
+                <h3>Episodio III: "La Venganza de los Sith" (Película 3)</h3>
                 <ul>
-                    - Termina la Guerra de los Clones.</li>
+                    <li><strong>Sucede 3 años despues de "El Ataque de los Clones" (Película 2)</strong><br><br>- Termina la Guerra de los Clones.</li>
                 </ul>
             </article>
             
@@ -363,18 +369,20 @@
             <p class="era-description">
                 <strong>Eventos clave que trajo este fin de la guerra:</strong>
                 <br><br>
-                • <strong>Duración de la Guerra:</strong> La guerra de los clones duro 3 años, Ósea desde la Pelicula 2 a la 3 pasaron 3 años.
+                • <strong>Duración de la Guerra:</strong> La guerra de los clones duro 3 años, Ósea desde la Película 2 a la 3 pasaron 3 años.
                 <br><br>
                 • <strong>La caída de la República:</strong> Palpatine proclama el Imperio Galáctico reemplazando a la Republica, autoproclamándose Emperador.
-                <br><br>
+                <br>
+                <p class="era-description" data-categories="animated">
                 • <strong>La creación del Inquisitorius:</strong> Tras la ejecución de la Orden 66, Palpatine establece esta orden secreta bajo el liderazgo del "Gran Inquisidor". Los Inquisidores son Jedi caídos al lado oscuro convertidos en cazadores del Imperio.
+                </p>
             </p>
 
         </section>
 
         <section id="era-imperio">
             <h2>Era del Imperio</h2>
-            <p class="era-description">Desde el ascenso del Imperio hasta la Batalla en Endor y Jakku, Ósea después de "El Retorno del Jedi" (Película 6).</p>
+            <p class="era-description"></p>
             
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "Historias del Imperio" - Capítulo 4 [Devota]</h3>
@@ -400,7 +408,7 @@
             <article class="timeline-item animated" data-categories="animated">
                 <h3>Serie "The Bad Batch" (Temporada 1)</h3>
                 <ul>
-                    <li><strong>Inmediatamente después de "La Venganza de los Sith" (Película 3)</strong><br><br>- Muestra al Batallón 99 (El Lote Malo) después de la Guerra de los Clones.</li>
+                    <li><strong>Comienza inmediatamente después de la película de "Rogue One"</strong><br><br>- M</li>
                 </ul>
             </article>
             
@@ -431,7 +439,7 @@
                 <strong>1. Prólogo de Rogue One:</strong> 
                 <em>(primeros 8 minutos de la película)</em><br>
                 Muestra a Jyn Erso de niña. 
-                <span class="note"><br>*No es necesario ver la película completa en este punto</span>.
+                <span class="note"><br>*No es necesario ver la película en este punto</span>.
                 <br><br>
                 <strong>2. Introducción de Solo:</strong> 
                 <em>(primeros 14 minutos)</em><br>
@@ -441,7 +449,7 @@
             <article class="timeline-item movie" data-categories="movie">
                 <h3>Película "Han Solo"</h3>
                 <ul>
-                    <li><strong>9 años después de "La Venganza de los Sith" (Película 3)</strong></li>
+                    <li><strong>9 años después de "La Venganza de los Sith" (Película 3)</strong><br><br>- Muestra la vida de Han Solo en su juventud</li>
                 </ul>
             </article>
 
@@ -545,40 +553,38 @@
             </article>
             
             <article class="timeline-item movie" data-categories="movie">
-                <h3>19 años después de "La Venganza de los Sith" (Película 3)</h3>
+                <h3>Película "Rogue One"</h3>
                 <ul>
-                    <li><strong>Película "Rogue One"</strong></li>
+                    <li><strong>Sucede 19 años después de "La Venganza de los Sith" (Película 3)</strong></li>
+                    <li><strong>O tambien 10 años después de la Película de "Han Solo"</strong><br><br>- Un grupo de rebeldes emprende una misión crítica para obtener unos planos importantes.</li>
                 </ul>
             </article>
             
             <article class="timeline-item movie" data-categories="movie">
-                <h3>Película "Star Wars: Una Nueva Esperanza"</h3>
+                <h3>Episodio IV: "Una Nueva Esperanza" (Película 4)</h3>
                 <ul>
-                    <li><strong>Comienza la Rebelión contra el Imperio</strong></li>
+                    <li><strong>Comienza inmediatamente después de la Película de "Rogue One"</strong><br><br>- Se pone en marcha el ataque gracias a la obtencion de los planos por los rebeldes.</li>
                 </ul>
             </article>
-        </section>
 
+            <article class="timeline-item movie" data-categories="movie">
+                <h3>Episodio V: "El Imperio Contraataca" (Película 5)</h3>
+                <ul>
+                    <li><strong>Sucede 3 años después de "Una Nueva Esperanza" (Película 4)</strong><br><br>- La Rebelión es perseguida por el Imperio mientras Luke busca entrenamiento.</li>
+                </ul>
+            </article>
+            
+            <article class="timeline-item movie" data-categories="movie">
+                <h3>Episodio VI: "El Retorno del Jedi" (Película 6)</h3>
+                <ul>
+                    <li><strong>Sucede 1 años después de "El Imperio Contraataca" (Película 5)</strong><br><br>- Se pone en marcha el ataque gracias a la obtencion de los planos por los rebeldes.</li>
+                </ul>
+            </article>
+            
         <section id="era-nueva-republica">
-            <h2>Era de la Nueva República</h2>
-            <p class="era-description">Comienza después de la película "El Retorno del Jedi"</p>
-            
-            <article class="timeline-item movie" data-categories="movie">
-                <h3>3 años después de Una Nueva Esperanza</h3>
-                <ul>
-                    <li><strong>Película "Star Wars: El Imperio Contraataca"</strong></li>
-                </ul>
-            </article>
-            
-            <article class="timeline-item movie" data-categories="movie">
-                <h3>4 años después de Una Nueva Esperanza</h3>
-                <ul>
-                    <li><strong>Película "Star Wars: El Retorno del Jedi"</strong></li>
-                    <li><strong>Caída del Imperio Galáctico</strong></li>
-                    <li><strong>Establecimiento de la Nueva República</strong></li>
-                </ul>
-            </article>
-            
+            <h2 data-categories="live-action">Era de la Nueva República</h2>
+            <p class="era-description" data-categories="live-action">Comienza después de la película "El Retorno del Jedi"</p>
+
             <article class="timeline-item live-action" data-categories="live-action">
                 <h3>5 años después de El Retorno del Jedi</h3>
                 <ul>
@@ -624,7 +630,7 @@
 
         <section id="era-resistencia">
             <h2>Era de la Resistencia y la Primera Orden</h2>
-            <p class="era-description">Comienza con la serie "Resistance"</p>
+            <p class="era-description"></p>
             
             <article class="timeline-item animated" data-categories="animated">
                 <h3>30 años después de El Retorno del Jedi</h3>
@@ -634,11 +640,17 @@
             </article>
             
             <article class="timeline-item movie" data-categories="movie">
-                <h3>Película "Star Wars: El Despertar de la Fuerza"</h3>
+                <h3>Episodio VII: "El Despertar de la Fuerza" (Película 7)</h3>
+                <ul>
+                    <li><strong>Sucede 30 años después de "El Retorno del Jedi" (Película 6)</strong><br><br>- El conflicto en la galaxia regresa, La Primera Orden resurge de las sombras del extinto Imperio.</li>
+                </ul>
             </article>
             
             <article class="timeline-item movie" data-categories="movie">
-                <h3>Película "Star Wars: Los Últimos Jedi"</h3>
+                <h3>Episodio VIII: "Los Últimos Jedi" (Película 8)</h3>
+                <ul>
+                    <li><strong>Sucede 30 años después de "El Retorno del Jedi" (Película 6)</strong><br><br>- El conflicto en la galaxia regresa, La Primera Orden resurge de las sombras del extinto Imperio.</li>
+                </ul>
             </article>
             
             <article class="timeline-item animated" data-categories="animated">
@@ -649,9 +661,9 @@
             </article>
             
             <article class="timeline-item movie" data-categories="movie">
-                <h3>31 años después de El Retorno del Jedi</h3>
+                <h3>Episodio IX: "El Ascenso de Skywalker" (Película 9)</h3>
                 <ul>
-                    <li><strong>Película "Star Wars: El Ascenso de Skywalker"</strong></li>
+                    <li><strong>31 años después de El Retorno del Jedi</strong></li>
                 </ul>
             </article>
         </section>
