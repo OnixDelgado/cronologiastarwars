@@ -415,7 +415,7 @@ section h2 {
 }
 
 .leyenda-colores h3 {
-    margin-bottom: 0.5rem;
+    margin-top: .5rem;
     color: white;
     border-bottom: none;
 }
@@ -531,9 +531,10 @@ html {
 /* Contenedor interno */
 .filtros-container .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }  
 
 /* Título "Filtrar contenido" */
 .filtros-container h3 {
@@ -541,13 +542,19 @@ html {
     margin-right: 20px;
     font-size: 1rem;
     white-space: nowrap;
+    border: 2px solid #ffe81f;
+    padding: 10px;
+    border-radius: 25px;
 }
 
 /* Grupo de checkboxes */
 .filtros {
     display: flex;
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
 }
 
 .filtro-option {
@@ -886,9 +893,24 @@ html {
     }
 }
 
-@media (max-width: 500px) {
-
-}
+@media (min-width: 769px) {
+    .filtros {
+      max-height: none !important;
+      opacity: 1 !important;
+      overflow: visible !important;
+      justify-content: center !important;
+    }
+  
+    .filtros-container {
+      position: sticky;
+      top: 60px;
+    }
+  
+    .filtro-toggle {
+      display: none !important; /* No mostrar el botón en escritorio */
+    }
+  }
+  
 
 .filtro-toggle:hover,
 .menu-toggle:hover {
