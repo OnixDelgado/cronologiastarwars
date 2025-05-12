@@ -184,6 +184,9 @@ section h2 {
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    max-width: 900px; /* Aumentás el ancho máximo */
+    width: 100%;
 }
 
 .timeline-item:hover {
@@ -322,7 +325,7 @@ section h2 {
 /*Modificar estilo de links*/
 
 /* Estilos para enlaces dentro de timeline-item */
-.timeline-item a {
+.timeline-item a,.link-videoyoutube {
     color: #4fc3f7 !important; /* Color azul claro - puedes cambiarlo */
     text-decoration: none;
     font-weight: bold;
@@ -330,22 +333,22 @@ section h2 {
     border-bottom: 1px dotted currentColor; /* Subrayado punteado */
 }
 
-.timeline-item a:hover {
+.timeline-item a:hover,.link-videoyoutube:hover  {
     color: #ffeb3b; /* Color amarillo al pasar el mouse */
     border-bottom-style: solid; /* Subrayado continuo al hover */
     text-shadow: 0 0 5px rgba(255, 235, 59, 0.5); /* Efecto de brillo */
 }
 
 /* Estilos específicos para enlaces en items animados */
-.timeline-item.animated a {
+.timeline-item.animated a,.link-videoyoutube {
     color: var(--animated); /* Usa el color naranja de las animadas */
 }
 
-.timeline-item.animated a:hover {
+.timeline-item.animated a:hover ,.link-videoyoutube:hover {
     color: #ffe81f; /* Amarillo al hover */
 }
 
-.timeline-item a:visited {
+.timeline-item a:visited,.link-videoyoutube:visited {
     color: #4fc3f7; /* Mismo color que en estado normal */
 }
 
@@ -353,6 +356,9 @@ section h2 {
 @media (min-width: 768px) {
     .timeline-item {
         margin-left: 50px;
+
+        max-width: 900px; /* Aumentás el ancho máximo */
+        width: 100%;
     }
 
     .timeline-item::before {
@@ -464,7 +470,8 @@ footer {
     background-color: rgba(0, 0, 0, 0.9);
     color: var(--text-color);
     text-align: center;
-    padding: 3.4rem 0;
+    padding-bottom: 3.4rem;
+    margin-bottom: 1rem;
     border-top: 1px solid var(--live-action);
     font-size: 0.9rem;
 }
@@ -910,7 +917,37 @@ html {
       display: none !important; /* No mostrar el botón en escritorio */
     }
   }
-  
+
+@media (max-width: 358px) {
+  .filtros-container .container {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .filtros-container h3 {
+    font-size: 14px;         /* Achica el texto */
+    margin: 4px 0;           /* Reduce márgenes verticales */
+    line-height: 1.2;
+  }
+
+  .filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .filtro-option {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .filtro-toggle i {
+    font-size: 16px;
+  }
+}
+
+
+
 
 .filtro-toggle:hover,
 .menu-toggle:hover {
