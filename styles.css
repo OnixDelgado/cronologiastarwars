@@ -184,9 +184,6 @@ section h2 {
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    max-width: 900px; /* Aumentás el ancho máximo */
-    width: 100%;
 }
 
 .timeline-item:hover {
@@ -356,9 +353,6 @@ section h2 {
 @media (min-width: 768px) {
     .timeline-item {
         margin-left: 50px;
-
-        max-width: 900px; /* Aumentás el ancho máximo */
-        width: 100%;
     }
 
     .timeline-item::before {
@@ -549,9 +543,8 @@ html {
     margin-right: 20px;
     font-size: 1rem;
     white-space: nowrap;
-    border: 2px solid #ffe81f;
+    border-left: 2px solid #ffe81f;
     padding: 10px;
-    border-radius: 25px;
 }
 
 /* Grupo de checkboxes */
