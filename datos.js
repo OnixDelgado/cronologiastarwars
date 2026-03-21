@@ -893,6 +893,13 @@ const timelineData = [
         titulo: 'Serie "Skeleton Crew" (Temporada 1)',
         eventos: [{ tiempo: 'Sucede poco tiempo después de la Temporada 1 de "Ahsoka"', descripcion: '- Muestra la historia de un grupo de niños y un pirata experimentado.' }]
     },
+    {
+        eraId: "era-nueva-republica",
+        categoria: "movie",
+        año: "9 DBY",
+        titulo: 'Película "El Mandaloriano y Grogu"',
+        eventos: [{ tiempo: 'Sucede después de la Temporada 3 de "El Mandaloriano"', descripcion: '- Continúa las aventuras de Din Djarin y Grogu en la pantalla grande.' }]
+    },
     // --- INICIO DE LA ERA DE LA RESISTENCIA Y LA PRIMERA ORDEN ---
     {
         eraId: "era-resistencia",
