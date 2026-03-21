@@ -35,7 +35,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
-    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1471&auto=format&fit=crop');
+    background-image: url('assets/img/fondo-estrellas.avif'); /* <--- Ruta local */
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -67,7 +67,7 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?q=80&w=1528&auto=format&fit=crop') center/cover;
+    background: url('assets/img/fondo-header.avif') center/cover; /* <--- Ruta local */
     opacity: 0.2;
     z-index: -1;
 }
@@ -485,41 +485,12 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav li {
-        margin: 0.3rem 0;
-    }
-
-    .timeline-item {
-        padding: 1.2rem;
-    }
-    
-    .leyenda-colores ul {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 /* Estilos generales (mantén los anteriores) */
 
 /* Filtros */
 .filtros-container {
-    position: fixed;
-    top: 60px; /* Ajusta según la altura de tu header */
+    position: sticky;
+    top: var(--nav-height, 60px);
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.95);
@@ -581,48 +552,11 @@ html {
     font-size: 0.9rem;
 }
 
-/* Estilos específicos para cada filtro */
-.filtro-label.pelicula {
-    color: var(--movie-color);
-}
-
-.filtro-label.live-action {
-    color: var(--live-action);
-}
-
-.filtro-label.animada {
-    color: var(--animated);
-}
-
-.filtro-label.cortos {
-    color: var(--cortos);
-}
-
-.filtro-label.juego {
-    color: var(--game);
-}
-
 /* Ocultar elementos filtrados */
 .timeline-item.hidden {
     display: none;
 }
 
-/* Ajustes para móviles */
-@media (max-width: 768px) {
-    .filtros {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .filtro-option {
-        width: 100%;
-    }
-    
-    .filtros-container {
-        top: auto; /* En móviles el filtro no es sticky */
-        position: relative;
-    }
-}
 
 /* Estilos para el contenedor sticky */
 .nav-wrapper {
@@ -811,8 +745,8 @@ html {
     .main-nav.active {
         display: block;
         position: fixed;
-        top: 7%;
-        height: 14.5rem;
+        top: var(--nav-height, 60px);
+        height: auto;
         left: 1px;
         width: 100%;
         background: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.5) 80%, rgba(222, 205, 53, 0) 100%);
@@ -844,10 +778,7 @@ html {
     .filtro-option {
         width: 100%;
     }
-}
 
-/* Estilos para móvil los filtros*/
-@media (max-width: 768px) {
     .nav-wrapper {
         position: static; /* Nav de eras ya no sticky en móvil */
     }
@@ -890,6 +821,130 @@ html {
         font-size: 1.2rem;
         padding: 5px 15px;
 
+    }
+
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filtro-option {
+        width: 100%;
+    }
+    
+    .filtros-container {
+        top: auto; /* En móviles el filtro no es sticky */
+        position: relative;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.3rem 0;
+    }
+
+    .timeline-item {
+        padding: 1.2rem;
+    }
+    
+    .leyenda-colores ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .intro-tracker-help {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* =======================================
+       FILTROS EN MÓVIL (Botón Flotante)
+       ======================================= */
+    
+    /* Reseteamos el contenedor principal para que no moleste */
+    .filtros-container {
+        position: static; 
+        padding: 0;
+        border: none;
+    }
+    
+    .filtros-container h3 {
+        display: none; /* Ocultamos el texto "Filtrar contenido" para ahorrar espacio */
+    }
+
+    main {
+        margin-top: 20px;
+        margin-bottom: 40px; 
+    }
+
+    /* 1. Botón Flotante (Siempre visible en la esquina) */
+    .filtro-toggle {
+        display: flex !important;
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: var(--live-action);
+        color: var(--primary-color);
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(255, 232, 31, 0.4);
+        z-index: 1000;
+        font-size: 1.4rem;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* 2. Panel de Filtros Emergente */
+    .filtros {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        
+        position: fixed;
+        bottom: 95px; /* Aparece justo arriba del botón */
+        right: 25px;
+        background-color: rgba(20, 20, 20, 0.98);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        
+        /* Animación suave de entrada (efecto burbuja) */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.95);
+        transform-origin: bottom right;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Cuando se toca el botón, el panel se vuelve visible */
+    .filtros.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    .filtro-option {
+        width: 100%;
+        margin: 0;
     }
 }
 
@@ -952,4 +1007,324 @@ html {
 .filtro-toggle:hover,
 .menu-toggle:hover {
     transform: scale(1.05);
+}
+
+/* =========================================
+   MEJORAS UI: FILTROS CON CHECKBOX VISIBLE
+   ========================================= */
+
+/* 1. Contenedor del filtro */
+.filtro-option {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* Bordes un poco más rectos para acompañar el checkbox */
+    background-color: rgba(42, 42, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filtro-option:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 2. El Checkbox visible */
+.filtro-checkbox {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px; /* Separación con el texto */
+    cursor: pointer;
+    accent-color: var(--live-action); /* Pinta el tilde del color de Star Wars en navegadores modernos */
+}
+
+/* 3. El Texto (Inactivo / Gris por defecto) */
+.filtro-label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #666666; /* Letras grises/apagadas cuando está destildado */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* 4. ESTADOS ACTIVOS (Checked) - Se encienden los colores de las letras */
+.filtro-checkbox:checked + .filtro-label.pelicula {
+    color: var(--movie-color);
+    text-shadow: 0 0 8px rgba(85, 255, 85, 0.4);
+}
+
+.filtro-checkbox:checked + .filtro-label.live-action {
+    color: var(--live-action);
+    text-shadow: 0 0 8px rgba(255, 232, 31, 0.4);
+}
+
+.filtro-checkbox:checked + .filtro-label.animada {
+    color: var(--animated);
+    text-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.filtro-checkbox:checked + .filtro-label.cortos {
+    color: var(--cortos);
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+}
+
+.filtro-checkbox:checked + .filtro-label.juego {
+    color: var(--game);
+    text-shadow: 0 0 8px rgba(170, 85, 255, 0.4);
+}
+
+/* 5. (Opcional) Iluminar sutilmente el borde del contenedor si está activo */
+.filtro-option:has(.filtro-checkbox:checked[data-category="movie"]) { border-color: rgba(85, 255, 85, 0.3); }
+.filtro-option:has(.filtro-checkbox:checked[data-category="live-action"]) { border-color: rgba(255, 232, 31, 0.3); }
+.filtro-option:has(.filtro-checkbox:checked[data-category="animated"]) { border-color: rgba(255, 140, 0, 0.3); }
+.filtro-option:has(.filtro-checkbox:checked[data-category="cortos"]) { border-color: rgba(255, 105, 180, 0.3); }
+.filtro-option:has(.filtro-checkbox:checked[data-category="game"]) { border-color: rgba(170, 85, 255, 0.3); }
+
+/* =========================================
+   SISTEMA DE TRACKING (VISTO/NO VISTO)
+   ========================================= */
+
+/* Alinear el título principal con su checkbox */
+.tracking-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.tracking-header h3 {
+    margin-bottom: 0 !important; /* Anulamos el margin del H3 original para que quede centrado */
+}
+
+/* Alinear cada capítulo con su checkbox */
+.tracking-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+/* Ocultar la viñeta de punto (•) original ya que ahora usamos el checkbox */
+.timeline-item ul.tracking-list li:has(.tracking-event)::before {
+    display: none;
+}
+
+.timeline-item ul.tracking-list li:has(.tracking-event) {
+    padding-left: 0; 
+}
+
+/* Estilos de los Checkboxes */
+.tracker-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 4px; /* Baja sutilmente el check para alinear con el texto */
+    accent-color: var(--live-action); /* Color amarillo de SW al tildar */
+}
+
+.tracking-header .tracker-checkbox {
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+}
+
+/* Estilo del texto que funciona como Label */
+.tracker-label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.tracker-label:hover {
+    opacity: 0.8;
+}
+
+/* EFECTO DE COMPLETADO (Visto) */
+.tracker-label.completado {
+    opacity: 0.3; /* Hace el texto transparente */
+    text-decoration: line-through; /* Tacha el texto */
+    filter: grayscale(100%); /* Le quita los colores (Ej: el texto naranja o verde) */
+}
+
+/* Evitar que se tachen las etiquetas <strong> de color en The Clone Wars, 
+   solo queremos que se opaque para que la temporada siga siendo visible */
+.tracker-label.completado strong {
+    text-decoration: none;
+}
+
+/* =========================================
+   ESTILOS PARA LOS CHECKBOXES DE LAS ERAS (H2)
+   ========================================= */
+
+.tracking-era {
+    border-bottom: 2px solid var(--live-action);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.tracking-era h2 {
+    border-bottom: none !important; 
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.tracking-era .tracker-checkbox {
+    width: 26px; 
+    height: 26px;
+    margin-top: 2px;
+}
+
+/* =========================================
+   ESTILOS PARA LA CAJA DE AYUDA (INTRO)
+   ========================================= */
+
+.intro-tracker-help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background-color: rgba(255, 232, 31, 0.08); /* Fondo con un toque sutil del amarillo Star Wars */
+    border-radius: 8px;
+    border: 1px dashed var(--live-action);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.intro-tracker-help:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 232, 31, 0.12);
+}
+
+.intro-tracker-help i {
+    font-size: 2.2rem;
+    color: var(--live-action);
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.4);
+}
+
+.intro-tracker-help p {
+    margin: 0 !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* =========================================
+   ETIQUETA DE AÑO (ABY / DBY)
+   ========================================= */
+
+.badge-year {
+    margin-left: auto; /* Esto empuja la etiqueta automáticamente hacia la extrema derecha */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #b0b0b0; /* Gris sutil por defecto */
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Evita que el texto del año se parta en dos renglones */
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover: se ilumina cuando pasás el mouse por el recuadro */
+.timeline-item:hover .badge-year {
+    color: var(--live-action);
+    background-color: rgba(255, 232, 31, 0.08);
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+/* Ajuste para celulares muy pequeños */
+@media (max-width: 480px) {
+    .tracking-header {
+        flex-wrap: wrap; 
+    }
+    .badge-year {
+        margin-left: 30px; /* Lo alinea con el texto para que no quede pegado al borde izquierdo si cae abajo */
+        margin-top: 2px;
+    }
+}
+
+/* =========================================
+   COLORES DBY Y TOOLTIP (VENTANITA FLOTANTE)
+   ========================================= */
+
+/* Efecto hover luminoso AZUL solo para la clase DBY */
+.timeline-item:hover .badge-year.badge-dby,
+.badge-year.badge-dby:hover {
+    color: #4fc3f7; /* Azul claro estilo holograma/sable */
+    background-color: rgba(79, 195, 247, 0.08);
+    border-color: rgba(79, 195, 247, 0.4);
+}
+
+/* Configuramos la etiqueta para que muestre un cursor de ayuda (?) */
+.badge-year {
+    position: relative;
+    cursor: help; 
+}
+
+/* La cajita del Tooltip */
+.badge-year::after {
+    content: attr(data-tooltip); /* Lee el texto de JS automáticamente */
+    position: absolute;
+    bottom: 140%; /* Lo ubica arriba de la etiqueta */
+    right: 0;
+    background-color: rgba(18, 18, 18, 0.95);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    pointer-events: none; /* Evita que el mouse parpadee */
+}
+
+/* El pequeño triangulito debajo de la caja para que parezca un globo de diálogo */
+.badge-year::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 15px; /* Acomoda la flecha hacia el lado derecho */
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(18, 18, 18, 0.95) transparent transparent transparent;
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Animación: Aparece cuando pasás el mouse encima o al mantener pulsado (celulares) */
+.badge-year:hover::after,
+.badge-year:hover::before,
+.badge-year:active::after,
+.badge-year:active::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Etiqueta incrustada en medio del texto */
+.badge-year.badge-inline {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
 }
