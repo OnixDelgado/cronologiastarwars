@@ -428,13 +428,6 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "animated",
         año: "19 ABY",
-        titulo: 'Serie "Historias de los Jedi" - Capítulo 6 [Resolve]',
-        eventos: [{ tiempo: 'Sucede poco tiempo después de "La Venganza de los Sith" (Película 3).', descripcion: '- Muestra la vida de Ahsoka después de la Guerra de los Clones.' }]
-    },
-    {
-        eraId: "era-imperio",
-        categoria: "animated",
-        año: "19 ABY",
         titulo: 'Serie "The Bad Batch" (Temporada 1)',
         eventos: [{ tiempo: 'Sucede durante la orden 66 ejecutada en la Película 3.', descripcion: '- Muestra al Batallón 99 (El Lote Malo) después de la guerra.' }]
     },
@@ -484,8 +477,28 @@ const timelineData = [
     {
         eraId: "era-imperio",
         tipo: "descripcion",
+        categoria: "animated",
+        texto: 'Pasa 1 año...'
+    },
+    {
+        eraId: "era-imperio",
+        categoria: "animated",
+        año: "17 ABY",
+        titulo: 'Serie "Maul - Lord de las Sombras" (Temporada 1)',
+        eventos: [{ tiempo: 'Sucede 2 años después de "La Venganza de los Sith" (Película 3)', descripcion: '- Muestra la historia de Darth Maul construyendo su imperio criminal desde el inframundo tras la caída de la República y la Orden 66.' }]
+    },
+    {
+        eraId: "era-imperio",
+        categoria: "animated",
+        año: "17 ABY",
+        titulo: 'Serie "Historias de los Jedi" - Capítulo 6 [Resolve]',
+        eventos: [{ tiempo: 'Sucede 2 años después de "La Venganza de los Sith" (Película 3).', descripcion: '- Muestra la vida de Ahsoka después de la Guerra de los Clones.' }]
+    },
+    {
+        eraId: "era-imperio",
+        tipo: "descripcion",
         categoria: "game",
-        texto: 'Pasan 4 años...'
+        texto: 'Pasan 3 años...'
     },
     {
         eraId: "era-imperio",
