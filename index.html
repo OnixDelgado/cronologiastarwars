@@ -24,7 +24,7 @@
 
     <div class="nav-wrapper">
         <div class="container">
-            <button class="menu-toggle" aria-label="Toggle menu">
+            <button class="menu-toggle" aria-label="Toggle menu" title="Menú de Eras">
                 <i class="fas fa-bars"></i>
             </button>
             <nav class="main-nav">
@@ -42,7 +42,7 @@
         <div class="container">
             <h3>Filtrar contenido:</h3>
             
-            <button class="filtro-toggle" aria-label="Mostrar/Ocultar filtros">
+            <button class="filtro-toggle" aria-label="Mostrar/Ocultar filtros" title="Mostrar/Ocultar filtros">
                 <i class="fas fa-filter"></i>
             </button>
             
@@ -85,7 +85,18 @@
                 <i class="fas fa-check-circle"></i>
                 <p><strong>Lleva el control de tu maratón:</strong> Utiliza las casillas que aparecen junto a cada película, serie o capítulo para marcar el contenido que ya viste. ¡Tu progreso se guardará automáticamente en tu dispositivo para que retomes la historia cuando quieras!</p>
             </div>
-        </section>
+
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span class="progress-title">Progreso del Canon</span>
+                    <span class="progress-percentage" id="progress-text">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-message" id="progress-message">¡Comienza tu viaje por la galaxia!</p>
+            </div>
+            </section>
 
         <section id="era-republica">
             <h2>Era de la República</h2>
@@ -111,6 +122,10 @@
             <p>El contenido aquí presentado es solo para fines educativos y de orientación.</p>
         </div>
     </footer>
+
+    <button id="btn-volver-arriba" aria-label="Volver arriba" title="Volver al inicio">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="datos.js"></script>
     <script src="script.js"></script>

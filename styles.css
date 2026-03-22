@@ -138,6 +138,7 @@ section {
     margin-bottom: 3rem;
     padding: 0 1rem;
     animation: fadeIn 0.6s ease-out forwards;
+    scroll-margin-top: 60px; /* <-- Evita que el título se pegue al techo en celulares */
 }
 
 section:nth-child(2) { animation-delay: 0.1s; }
@@ -351,6 +352,14 @@ section h2 {
 
 /* Línea de tiempo en versión desktop */
 @media (min-width: 768px) {
+
+    section {
+        scroll-margin-top: 140px; /* Da el espacio exacto para esquivar el menú y los filtros */
+    }
+    .timeline-item {
+        margin-left: 50px;
+    }
+
     .timeline-item {
         margin-left: 50px;
     }
@@ -731,7 +740,7 @@ html {
         position: fixed;
         top: 0.5rem;
         right: 1rem;
-        z-index: 1001;
+        z-index: 100;
     }
     
     .main-nav {
@@ -750,9 +759,9 @@ html {
         left: 1px;
         width: 100%;
         background: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.5) 80%, rgba(222, 205, 53, 0) 100%);
-
-        max-height: 500px; /* o más, si tu menú es largo */
+        max-height: 500px;
         opacity: 1;
+        z-index: 1001;
     }
     
     .main-nav ul {
@@ -958,7 +967,9 @@ html {
   
     .filtros-container {
       position: sticky;
-      top: 60px;
+      /* Usamos la variable dinámica que calcula la altura exacta y le restamos 1px para sellar el hueco */
+      top: calc(var(--nav-height, 60px) - 1px);
+      background-color: rgba(0, 0, 0, 0.98); /* Fondo casi totalmente negro para que se vea como un panel sólido */
     }
   
     .filtro-toggle {
@@ -1327,4 +1338,270 @@ html {
     display: inline-block;
     margin: 0 5px;
     vertical-align: middle;
+}
+
+/* =========================================
+   PÓSTERS E IMÁGENES (RESPONSIVE INTELIGENTE)
+   ========================================= */
+
+/* Comportamiento base (MÓVILES) */
+.poster-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea a la derecha */
+    margin-top: -10px; 
+    margin-bottom: 1.5rem;
+    position: relative; /* Súper importante: Ancla el tooltip aquí */
+}
+
+.poster-toggle-check {
+    display: none; 
+}
+
+/* El botón de "Ver portada" */
+.btn-ver-portada {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    user-select: none;
+    z-index: 10;
+}
+
+.btn-ver-portada:hover {
+    background-color: rgba(255, 232, 31, 0.1);
+    color: var(--live-action);
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+/* Estado inicial de la imagen en móvil (Estilo Tooltip) */
+.poster-wrapper {
+    display: none;
+    position: absolute; /* Saca la imagen del flujo del texto para no empujarlo */
+    top: 35px; /* Lo ubica justo debajo del botón */
+    right: 0;
+    z-index: 100; /* Lo hace flotar por encima de toda la caja */
+    
+    /* Diseño tipo Pop-up/Tooltip */
+    background-color: rgba(18, 18, 18, 0.95);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Cuando se toca el botón, se muestra el tooltip con flexbox para soportar varias imágenes */
+.poster-toggle-check:checked ~ .poster-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Si no caben a lo ancho, bajan al siguiente renglón */
+    justify-content: center;
+    gap: 10px; /* Separación entre las imágenes */
+    width: max-content; /* Se adapta al número de imágenes */
+    max-width: 290px; /* Evita que se salga de la pantalla del celular */
+}
+
+/* El botón se enciende cuando la imagen está visible */
+.poster-toggle-check:checked ~ .btn-ver-portada {
+    background-color: rgba(255, 232, 31, 0.1);
+    color: var(--live-action);
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+.timeline-poster {
+    width: 100%;
+    max-width: 140px; 
+    border-radius: 6px;
+    display: block; /* Evita márgenes raros dentro del tooltip */
+    object-fit: cover;
+}
+
+/* =========================================
+   COMPORTAMIENTO EN PC (>= 768px)
+   ========================================= */
+@media (min-width: 768px) {
+    .poster-container {
+        display: block; 
+        float: right; 
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 0px; 
+        position: static; /* Reseteamos el ancla */
+    }
+
+    .btn-ver-portada {
+        display: none !important; 
+    }
+
+    .poster-wrapper {
+        display: flex !important; 
+        flex-direction: column; /* Apila las imágenes verticalmente */
+        gap: 15px; /* <--- ESTA ES LA MAGIA: 15px de separación vertical */
+        position: static; 
+        background: none; 
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        margin-top: 0;
+    }
+
+    .timeline-poster {
+        max-width: 150px; 
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-poster {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* =========================================
+   FONDO OSCURO PARA MENÚ MÓVIL (OVERLAY)
+   ========================================= */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000; /* Se pone por encima de todo el contenido */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   BARRA DE PROGRESO GLOBAL (GAMIFICACIÓN)
+   ========================================= */
+.progress-container {
+    background-color: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(255, 232, 31, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.progress-container:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 232, 31, 0.5);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.progress-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--live-action);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.progress-percentage {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4fc3f7; /* Azul sable de luz */
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.6);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%; /* Inicia en 0, el JS lo actualiza */
+    background: linear-gradient(90deg, #0288d1, #4fc3f7, #e1f5fe);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #4fc3f7, 0 0 20px #4fc3f7;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.progress-message {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #cccccc;
+    text-align: center;
+    font-style: italic;
+}
+
+/* =========================================
+   BOTÓN "VOLVER ARRIBA"
+   ========================================= */
+#btn-volver-arriba {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(26, 26, 26, 0.9);
+    color: var(--live-action);
+    border: 2px solid var(--live-action);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    
+    /* Oculto por defecto usando opacidad y transform para una entrada suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+/* Esta clase se la agregará JavaScript cuando hagamos scroll */
+#btn-volver-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-volver-arriba:hover {
+    background-color: var(--live-action);
+    color: var(--primary-color);
+    transform: translateY(-5px) scale(1.1); /* Efecto de despegue al pasar el mouse */
+    box-shadow: 0 6px 20px rgba(255, 232, 31, 0.6);
+}
+
+/* Ajuste para celulares: Lo movemos a la izquierda para que no tape el botón de filtros */
+@media (max-width: 768px) {
+    #btn-volver-arriba {
+        right: auto;
+        left: 20px;
+        bottom: 25px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
 }

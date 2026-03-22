@@ -30,12 +30,6 @@ Guía interactiva y cronológica definitiva de todo el contenido audiovisual can
    - Pasa el cursor (o mantén presionado en tu celular) sobre las etiquetas de los años (Ej: `9 DBY`) para ver su significado exacto en la línea temporal.
    - Haz clic en los enlaces integrados en las descripciones para ver material extra (como cómics narrados o discursos clave).
 
-## 📅 Próximas actualizaciones
-
-- [ ] Añadir línea de tiempo visual interactiva (Timeline tree).
-- [ ] Incluir contenido de novelas canónicas y cómics relevantes.
-- [ ] Sistema de búsqueda rápida por personajes o planetas.
-
 ## 🖋️ Autor
 
 **Onix Delgado** [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/OnixDelgado)  
