@@ -696,6 +696,9 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "live-action",
         año: "5 ABY",
+        imagenes: [
+            "assets/portadas/live-action/andor/andor.webp",
+        ],
         titulo: 'Serie "Andor" (Temporada 1)',
         eventos: [{ descripcion: '<strong>14 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 5 años antes de la película de Rogue One</strong>' }]
     },
@@ -735,6 +738,11 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "live-action",
         año: "3 ABY",
+        imagenes: [
+            "assets/portadas/live-action/andor/andor-temp2-cap1.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap2.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap3.webp"
+        ],
         titulo: 'Serie "Andor" (Temporada 2) - Capítulos 1-2-3',
         eventos: [{ descripcion: '<strong>14 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 5 años antes de la película de Rogue One</strong>' }]
     },
@@ -828,6 +836,11 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "live-action",
         año: "3 ABY",
+        imagenes: [
+            "assets/portadas/live-action/andor/andor-temp2-cap4.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap5.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap6.webp"
+        ],
         titulo: 'Serie "Andor" (Temporada 2) - Capítulos 4-5-6',
         eventos: [{ descripcion: '<strong>16 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 3 años antes de la película de Rogue One</strong>' }]
     },
@@ -841,6 +854,7 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "animated",
         año: "2 ABY",
+        
         imagenes: [
             "assets/portadas/animacion/rebels/rebels.webp",
         ],
@@ -861,6 +875,11 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "live-action",
         año: "2 ABY",
+        imagenes: [
+            "assets/portadas/live-action/andor/andor-temp2-cap7.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap8.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap9.webp"
+        ],
         titulo: 'Serie "Andor" (Temporada 2) - Capítulos 7-8-9',
         eventos: [{ tiempo: '17 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 2 años antes de la película de Rogue One', descripcion: '- La senadora Mon Mothma da un discurso en el Senado (Capítulo 9).' }]
     },
@@ -934,6 +953,11 @@ const timelineData = [
         eraId: "era-imperio",
         categoria: "live-action",
         año: "1 ABY",
+        imagenes: [
+            "assets/portadas/live-action/andor/andor-temp2-cap10.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap11.webp",
+            "assets/portadas/live-action/andor/andor-temp2-cap12.webp"
+        ],
         titulo: 'Serie "Andor" (Temporada 2) - Capítulos 10-11-12',
         eventos: [{ descripcion: '<strong>Sucede 19 años después de "La Venganza de los Sith" (Película 3).<br><br>Estos capítulos finales ocurren apenas unas semanas o días antes de la película "Rogue One".</strong>' }]
     },
@@ -1095,6 +1119,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "live-action",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/live-action/el-mandaloriano/el-mandaloriano.webp",
+        ],
         titulo: 'Serie "El Mandaloriano" (Temporada 1)',
         eventos: [{ tiempo: 'Sucede 5 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- Muestra la vida del cazarrecompensas "Mando" (Din Djarin).' }]
     },
@@ -1102,6 +1129,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "animated",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/animacion/historias-imperio/hdi-temp1-cap3.webp",
+        ],
         titulo: 'Serie “Historias del Imperio” - Capítulo 3 [El Camino del Odio]',
         eventos: [{ tiempo: 'Sucede 5 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- La Bruja (Morgan Elsbeth) que sobrevivió a la masacre del General Grievous, recibe visitas de la Nueva República.' }]
     },
@@ -1109,6 +1139,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "live-action",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/live-action/el-mandaloriano/el-mandaloriano.webp",
+        ],
         titulo: 'Serie "El Mandaloriano" (Temporada 2)',
         eventos: [{ descripcion: '<strong>Sucede meses después de la Temporada 1</strong>' }]
     },
@@ -1116,6 +1149,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "live-action",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/live-action/el-libro-de-boba-fett/el-libro-de-boba-fett.webp",
+        ],
         titulo: 'Serie "El Libro de Boba Fett" (Temporada 1)',
         eventos: [{ descripcion: '<strong>Sucede meses después de la Temporada 2 de "El Mandaloriano"</strong>' }]
     },
@@ -1123,6 +1159,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "live-action",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/live-action/el-mandaloriano/el-mandaloriano.webp",
+        ],
         titulo: 'Serie "El Mandaloriano" (Temporada 3)',
         eventos: [{ descripcion: '<strong>Sucede poco tiempo después de la Temporada 1 de "El Libro de Boba Fett"</strong>' }]
     },
@@ -1130,6 +1169,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "live-action",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/live-action/ahsoka/ahsoka.webp",
+        ],
         titulo: 'Serie "Ahsoka" (Temporada 1)',
         eventos: [{ tiempo: 'Sucede poco tiempo después de la Temporada 3 de "El Mandaloriano"', descripcion: '- Muestra la vida de Ahsoka y sus amigos de la serie de "Rebels".' }]
     },
@@ -1137,6 +1179,9 @@ const timelineData = [
         eraId: "era-nueva-republica",
         categoria: "live-action",
         año: "9 DBY",
+        imagenes: [
+            "assets/portadas/live-action/skeleton-crew/skeleton-crew.webp",
+        ],
         titulo: 'Serie "Skeleton Crew" (Temporada 1)',
         eventos: [{ tiempo: 'Sucede poco tiempo después de la Temporada 1 de "Ahsoka"', descripcion: '- Muestra la historia de un grupo de niños y un pirata experimentado.' }]
     },
@@ -1155,6 +1200,9 @@ const timelineData = [
         eraId: "era-resistencia",
         categoria: "animated",
         año: "34 DBY",
+        imagenes: [
+            "assets/portadas/animacion/resistencia/la-resistencia.webp",
+        ],
         titulo: 'Serie "La Resistencia" (Temporada 1) - Desde los Capítulos 1 al 19',
         eventos: [{ tiempo: 'Sucede 30 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- Muestra la historia de Kazuda Xiono (Kaz), poco antes de "El Despertar de la Fuerza" (Película 7).' }]
     },
@@ -1232,6 +1280,10 @@ const timelineData = [
         eraId: "era-resistencia",
         categoria: "animated",
         año: "34 DBY",
+        imagenes: [
+            "assets/portadas/animacion/resistencia/la-resistencia-temp1-cap20.webp",
+            "assets/portadas/animacion/resistencia/la-resistencia-temp1-cap21.webp",
+        ],
         titulo: 'Serie "La Resistencia" (Temporada 1) - Desde los Capítulos 20 al 21',
         eventos: [{ tiempo: 'Sucede 30 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- Muestra qué hace Kazuda Xiono (Kaz) al final de "El Despertar de la Fuerza" (Película 7)' }]
     },
@@ -1289,6 +1341,9 @@ const timelineData = [
         eraId: "era-resistencia",
         categoria: "animated",
         año: "34 DBY",
+        imagenes: [
+            "assets/portadas/animacion/resistencia/la-resistencia.webp",
+        ],
         titulo: 'Serie "La Resistencia" (Temporada 2)',
         eventos: [{ tiempo: 'Sucede al mismo tiempo que "Los Últimos Jedi" (Película 8)', descripcion: '- Muestra a Kaz cuando va al planeta de la resistencia (D\'Qar), pero la Resistencia ya se fue del planeta (Inicio de "Los Últimos Jedi" (Película 8)).' }]
     },
@@ -1301,7 +1356,10 @@ const timelineData = [
         eraId: "era-resistencia",
         tipo: "descripcion",
         año: "35 DBY",
-        texto: 'En este punto de la historia se envía un mensaje para toda la galaxia, el mensaje puedes escucharlo en el canal de Youtube de "La Fosa del Rancor"<br><br>- Link del video: <a href="https://youtu.be/j4KLj5OLTcA?si=xbDE5e4QE28kzi3j" target="_blank" rel="noopener noreferrer" class="link-videoyoutube">"Mensaje enviado a toda la Galaxia de su regreso"</a>'
+        imagenes: [
+            "assets/portadas/peliculas/mensaje-de-palpatine.webp",
+        ],
+        texto: 'En este punto de la historia se envía un mensaje para toda la galaxia, el mensaje puedes escucharlo en el canal de Youtube de "La Fosa del Rancor"<br><br>- Link del video: <a href="https://youtu.be/j4KLj5OLTcA?si=xbDE5e4QE28kzi3j" target="_blank" rel="noopener noreferrer" class="link-videoyoutube">"Mensaje enviado a toda la Galaxia"</a>'
     },
     {
         eraId: "era-resistencia",
