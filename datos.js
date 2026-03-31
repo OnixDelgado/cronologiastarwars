@@ -1102,7 +1102,7 @@ const timelineData = [
             "assets/portadas/juegos/squadrons.webp",
         ],
         titulo: 'Juego de “Star Wars Squadrons”',
-        eventos: [{ tiempo: 'Sucede 4 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- El prólogo del juego sucede después de la destrucción de Alderaan (El planeta de Leia que destruyen en la Película 4).<br><br>- El resto del modo historia sucede 4 años después de "El Retorno del Jedi" (Película 6).' }]
+        eventos: [{ tiempo: 'Sucede 4 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- El prólogo del juego sucede después de la destrucción de Alderaan, es decir, el planeta de Leia que destruyen en "Una Nueva Esperanza" (Película 4).<br><br>- El resto del modo historia sucede 4 años después de "El Retorno del Jedi" (Película 6).' }]
     },
     {
         eraId: "era-imperio",
