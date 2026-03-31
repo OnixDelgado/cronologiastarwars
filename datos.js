@@ -736,6 +736,16 @@ const timelineData = [
     },
     {
         eraId: "era-imperio",
+        categoria: "cortos",
+        año: "4 ABY",
+        imagenes: [
+            "assets/portadas/cortos/force-of-destiny/fod-temp2-cap16.webp",
+        ],
+        titulo: 'Corto "Forces of Destiny" - Temporada 2 - Capítulo 16 [Una lección de desarme]',
+        contenidoExtra: '<ul>- Ahsoka le da a Ezra una lección sobre confiar en la Fuerza.</ul>'
+    },
+    {
+        eraId: "era-imperio",
         categoria: "live-action",
         año: "3 ABY",
         imagenes: [
@@ -745,16 +755,6 @@ const timelineData = [
         ],
         titulo: 'Serie "Andor" (Temporada 2) - Capítulos 1-2-3',
         eventos: [{ descripcion: '<strong>14 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 5 años antes de la película de Rogue One</strong>' }]
-    },
-    {
-        eraId: "era-imperio",
-        categoria: "cortos",
-        año: "4 ABY",
-        imagenes: [
-            "assets/portadas/cortos/force-of-destiny/fod-temp2-cap16.webp",
-        ],
-        titulo: 'Corto "Forces of Destiny" - Temporada 2 - Capítulo 16 [Una lección de desarme]',
-        contenidoExtra: '<ul>- Ahsoka le da a Ezra una lección sobre confiar en la Fuerza.</ul>'
     },
     {
         eraId: "era-imperio",
