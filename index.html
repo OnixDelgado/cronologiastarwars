@@ -52,8 +52,13 @@
                 </label>
                 <input type="file" id="profile-upload" accept="image/*" hidden>
             </div>
-            <div class="profile-name" id="profile-name" contenteditable="true" spellcheck="false"
-                title="Haz clic para editar tu nombre">Tu Nombre Jedi</div>
+            <div class="profile-name-wrapper">
+                <div class="profile-name" id="profile-name" contenteditable="true" spellcheck="false"
+                    title="Haz clic para editar tu nombre">Tu Nombre Jedi</div>
+                <button id="btn-edit-name" class="btn-edit-name" title="Editar nombre">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+            </div>
 
             <!-- NUEVO: Selector de Perfiles -->
             <div class="profile-selector-container">

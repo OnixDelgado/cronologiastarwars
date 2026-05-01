@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let posterHTML = '';
                 if (arrayImagenes.length > 0) {
                     const checkId = `toggle-poster-desc-${itemIndex}`;
-                    const textoBoton = arrayImagenes.length > 1 ? "Ver portadas" : "Ver portada";
+                    const textoBoton = "Ver";
                     const iconoBoton = arrayImagenes.length > 1 ? "fas fa-images" : "fas fa-image";
 
                     let imagenesHTML = '';
@@ -166,14 +166,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 spanAño = `<span class="badge-year ${claseColor}" data-tooltip="${textoTooltip}">${item.año}</span>`;
             }
 
-            let htmlInterno = `
-                <div class="tracking-header">
-                    <input type="checkbox" class="tracker-checkbox main-tracker" id="${mainId}">
-                    <label for="${mainId}" class="tracker-label"><h3>${item.titulo}</h3></label>
-                    ${spanAño}
-                </div>
-            `;
-
             // 1. Unificamos si el usuario usa 'imagen' (una sola) o 'imagenes' (varias)
             let arrayImagenes = [];
             if (item.imagenes) {
@@ -182,20 +174,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 arrayImagenes = [item.imagen];
             }
 
-            // 2. Contenedor inteligente
+            // 2. Generamos el HTML del poster-container (si hay imágenes)
+            let posterHTML = '';
             if (arrayImagenes.length > 0) {
                 const checkId = `toggle-poster-${itemIndex}`;
-                // Detectamos si es plural o singular para cambiar el botón y el ícono
-                const textoBoton = arrayImagenes.length > 1 ? "Ver portadas" : "Ver portada";
+                const textoBoton = "Ver";
                 const iconoBoton = arrayImagenes.length > 1 ? "fas fa-images" : "fas fa-image";
 
-                // Generamos todas las etiquetas <img> necesarias
                 let imagenesHTML = '';
                 arrayImagenes.forEach((imgSrc) => {
                     imagenesHTML += `<img src="${imgSrc}" alt="Portada de ${item.titulo}" class="timeline-poster" loading="lazy">`;
                 });
 
-                htmlInterno += `
+                posterHTML = `
                     <div class="poster-container">
                         <input type="checkbox" id="${checkId}" class="poster-toggle-check">
                         <label for="${checkId}" class="btn-ver-portada"><i class="${iconoBoton}"></i> ${textoBoton}</label>
@@ -205,6 +196,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
             }
+
+            // 3. tracking-header: checkbox | título | badge-año
+            //    poster-container va al FINAL del article (mobile: botón al pie, PC: grid lo ubica a la derecha)
+            let htmlInterno = `
+                <div class="tracking-header">
+                    <input type="checkbox" class="tracker-checkbox main-tracker" id="${mainId}">
+                    <label for="${mainId}" class="tracker-label"><h3>${item.titulo}</h3></label>
+                    ${spanAño}
+                </div>
+            `;
 
             if (item.eventos && item.eventos.length > 0) {
                 // VERIFICACIÓN CLAVE: 
@@ -249,7 +250,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 htmlInterno += item.contenidoExtra;
             }
 
-            // --- ESTA LÍNEA ES LA MAGIA QUE SOLUCIONA EL DESBORDE ---
+            // poster-container al final → en mobile queda al pie de la caja
+            // En PC el CSS grid (grid-row: 1/100) lo ubica a la derecha de todo el contenido
+            htmlInterno += posterHTML;
             htmlInterno += '<div style="clear: both;"></div>';
 
             article.innerHTML = htmlInterno;
@@ -365,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
         profileName.addEventListener('blur', () => {
             let newName = profileName.textContent.trim();
             if (newName === '') {
-                newName = 'Tu Nombre Jedi';
+                newName = 'Tu Nombre';
                 profileName.textContent = newName;
                 if (typeof showToast === 'function') showToast('Debes agregar tu nombre', false);
             }
@@ -381,6 +384,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 profileName.blur();
             }
         });
+
+        // Evento para el botón del lápiz
+        const btnEditName = document.getElementById('btn-edit-name');
+        if (btnEditName) {
+            btnEditName.addEventListener('click', () => {
+                profileName.focus();
+
+                // Poner el cursor al final del texto para mayor comodidad
+                if (typeof window.getSelection !== "undefined" && typeof document.createRange !== "undefined") {
+                    const range = document.createRange();
+                    range.selectNodeContents(profileName);
+                    range.collapse(false);
+                    const sel = window.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+            });
+        }
     }
 
     // Cambiar de perfil (Selector)

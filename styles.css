@@ -1379,7 +1379,7 @@ html {
 
 .badge-year {
     margin-left: auto;
-    /* Esto empuja la etiqueta automáticamente hacia la extrema derecha */
+    /* Empuja el badge a la derecha dentro del tracking-header */
     background-color: rgba(255, 255, 255, 0.05);
     color: #b0b0b0;
     /* Gris sutil por defecto */
@@ -1424,9 +1424,7 @@ html {
     }
 
     .badge-year {
-        margin-left: auto;
         align-self: flex-start;
-        /* <--- LA MAGIA: Lo clava siempre arriba a la derecha */
         margin-top: 2px;
         /* Ajuste sutil para que quede a la misma altura que el título */
         margin-bottom: 0;
@@ -1522,32 +1520,39 @@ html {
    PÓSTERS E IMÁGENES (RESPONSIVE INTELIGENTE)
    ========================================= */
 
-/* Comportamiento base (MÓVILES) */
+/* .year-poster-group solo se usa en items de tipo descripcion (inline styles) */
+/* Para timeline-items regulares, el poster-container es hermano directo del article */
+
+/* Badge-year empujado a la derecha — ver regla principal arriba */
+
+/* ---- MOBILE: poster-container es un bloque right-aligned debajo del tracking-header ---- */
 .poster-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    /* Alinea a la derecha */
-    margin-top: -10px;
-    margin-bottom: 1.5rem;
+    /* alineado a la derecha */
     position: relative;
-    /* Súper importante: Ancla el tooltip aquí */
+    margin-bottom: 0.5rem;
 }
 
 .poster-toggle-check {
     display: none;
 }
 
-/* El botón de "Ver portada" */
+/* El botón "Ver" — siempre compacto en la esquina inferior derecha */
 .btn-ver-portada {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    width: fit-content;
+    /* Siempre del tamaño de su contenido, nunca se estira */
+    align-self: flex-end;
+    /* Siempre pegado a la derecha dentro de su contenedor */
     background-color: rgba(255, 255, 255, 0.05);
     color: #e0e0e0;
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
@@ -1561,18 +1566,13 @@ html {
     border-color: rgba(255, 232, 31, 0.3);
 }
 
-/* Estado inicial de la imagen en móvil (Estilo Tooltip) */
+/* Imagen oculta en mobile (aparece como tooltip al presionar el botón) */
 .poster-wrapper {
     display: none;
     position: absolute;
-    /* Saca la imagen del flujo del texto para no empujarlo */
     top: 35px;
-    /* Lo ubica justo debajo del botón */
     right: 0;
     z-index: 100;
-    /* Lo hace flotar por encima de toda la caja */
-
-    /* Diseño tipo Pop-up/Tooltip */
     background-color: rgba(18, 18, 18, 0.95);
     padding: 8px;
     border-radius: 8px;
@@ -1581,22 +1581,21 @@ html {
     animation: fadeIn 0.3s ease;
 }
 
-/* Cuando se toca el botón, se muestra el tooltip con flexbox para soportar varias imágenes */
 .poster-toggle-check:checked~.poster-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* Si no caben a lo ancho, bajan al siguiente renglón */
     justify-content: center;
     gap: 10px;
-    /* Separación entre las imágenes */
     width: max-content;
-    /* Se adapta al número de imágenes */
     max-width: 290px;
-    /* Evita que se salga de la pantalla del celular */
 }
 
-/* El botón se enciende cuando la imagen está visible */
+/* Eleva toda la caja actual por encima de las demás cuando la imagen está abierta */
+.timeline-item:has(.poster-toggle-check:checked) {
+    z-index: 999;
+}
+
 .poster-toggle-check:checked~.btn-ver-portada {
     background-color: rgba(255, 232, 31, 0.1);
     color: var(--live-action);
@@ -1608,7 +1607,6 @@ html {
     max-width: 140px;
     border-radius: 6px;
     display: block;
-    /* Evita márgenes raros dentro del tooltip */
     object-fit: cover;
 }
 
@@ -1616,32 +1614,58 @@ html {
    COMPORTAMIENTO EN PC (>= 768px)
    ========================================= */
 @media (min-width: 768px) {
-    .poster-container {
-        display: block;
-        float: right;
-        margin-left: 20px;
-        margin-bottom: 10px;
-        margin-top: 0px;
-        position: static;
-        /* Reseteamos el ancla */
+
+    /* El article usa CSS Grid: col izquierda (contenido) + col derecha (imagen) */
+    .timeline-item:has(.poster-container) {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 20px;
+        align-items: start;
     }
 
+    /* tracking-header ocupa la columna izquierda, fila 1 */
+    .timeline-item .tracking-header {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: center;
+    }
+
+    /* El poster-container ocupa la columna derecha, abarcando TODAS las filas */
+    .timeline-item .poster-container {
+        grid-column: 2;
+        grid-row: 1 / 100;
+        /* abarca header + lista de eventos */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        align-self: start;
+        position: static;
+        margin: 0;
+    }
+
+    /* Las listas y otros contenidos van en la columna izquierda */
+    .timeline-item>ul,
+    .timeline-item>div[style] {
+        grid-column: 1;
+    }
+
+    /* Ocultar botón en PC (imagen visible directamente) */
     .btn-ver-portada {
         display: none !important;
     }
 
+    /* Imágenes siempre visibles en PC, en columna */
     .poster-wrapper {
         display: flex !important;
         flex-direction: column;
-        /* Apila las imágenes verticalmente */
         gap: 15px;
-        /* <--- ESTA ES LA MAGIA: 15px de separación vertical */
         position: static;
         background: none;
         padding: 0;
         border: none;
         box-shadow: none;
         margin-top: 0;
+        animation: none;
     }
 
     .timeline-poster {
@@ -1656,6 +1680,7 @@ html {
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
     }
 }
+
 
 /* =========================================
    FONDO OSCURO PARA MENÚ MÓVIL (OVERLAY)
@@ -2122,9 +2147,11 @@ html {
     position: fixed;
     top: 0;
     left: -320px;
-    /* Oculto por defecto */
     width: 300px;
     height: 100vh;
+    /* Fallback para celulares antiguos */
+    height: 100dvh;
+    /* MAGIA: Altura dinámica que esquiva la barra de botones del celular */
     background: linear-gradient(180deg, rgba(15, 15, 15, 0.98) 0%, rgba(20, 20, 20, 0.98) 100%);
     border-right: 2px solid var(--live-action);
     z-index: 1001;
@@ -2187,6 +2214,14 @@ html {
     bottom: 0;
 }
 
+.profile-name-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
 .profile-name {
     color: var(--live-action);
     font-size: 1.2rem;
@@ -2202,6 +2237,23 @@ html {
 .profile-name:focus,
 .profile-name:hover {
     border-bottom: 1px dashed var(--live-action);
+}
+
+.btn-edit-name {
+    background: transparent;
+    border: none;
+    color: #b0b0b0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.profile-name-wrapper:hover .btn-edit-name,
+.btn-edit-name:hover {
+    opacity: 1;
+    color: var(--live-action);
 }
 
 /* 2. ENLACES CENTRALES */
@@ -2251,6 +2303,21 @@ html {
     text-align: center;
     font-size: 1rem;
     /* Achicamos el tamaño del ícono (antes 1.1rem) */
+}
+
+/* El 2do botón (Era del Imperio): transform mueve TODO el elemento (texto + ícono + fondo hover) */
+.sidebar-links li:nth-child(2) a {
+    transform: translateX(-20px);
+    /* Ajustá este valor para mover más/menos a la izquierda */
+}
+
+/* El hover sigue siendo +5px a la derecha, pero desde la nueva posición base */
+.sidebar-links li:nth-child(2) a:hover {
+    transform: translateX(-10px);
+}
+
+.sidebar-links li:nth-child(2) a i.fa-empire {
+    font-size: 0.9rem;
 }
 
 /* 3. FOOTER Y BOTÓN DE ACTUALIZAR */
@@ -2469,8 +2536,8 @@ main {
 
 /* Footer compacto del sidebar: una sola fila */
 .sidebar-footer {
-    padding: 15px 15px 45px 15px;
-    /* <-- Le dimos 45px de espacio en la parte de abajo */
+    /* Combinamos un espacio base de 25px + la zona segura del sistema operativo */
+    padding: 15px 15px calc(25px + env(safe-area-inset-bottom)) 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

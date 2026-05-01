@@ -560,13 +560,29 @@ const timelineData = [
         eraId: "era-imperio",
         tipo: "descripcion",
         imagenes: [
-            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada1.webp",
+            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada1.webp"
+        ],
+        categoria: "animated",
+        texto: '<strong>Contexto previo (Novela "Discípulo Oscuro"):</strong><br><br>• <strong>Un amor trágico:</strong> Al final de la Guerra de los Clones, Asajj Ventress se enamoró en secreto del Jedi Quinlan Vos.'
+    },
+    {
+        eraId: "era-imperio",
+        tipo: "descripcion",
+        imagenes: [
             "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada5.webp",
-            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada4.webp",
+            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada4.webp"
+        ],
+        categoria: "animated",
+        texto: '• <strong>El sacrificio:</strong> Durante un enfrentamiento en el planeta Christophsis, el Conde Dooku intentó asesinar a Quinlan Vos con rayos de la Fuerza. Ventress se interpuso y sacrificó su propia vida para salvar al hombre que amaba.'
+    },
+    {
+        eraId: "era-imperio",
+        tipo: "descripcion",
+        imagenes: [
             "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada6.webp"
         ],
         categoria: "animated",
-        texto: '<strong>Contexto previo (Novela "Discípulo Oscuro"):</strong><br><br>• <strong>Un amor trágico:</strong> Al final de la Guerra de los Clones, Asajj Ventress se enamoró en secreto del Jedi Quinlan Vos.<br><br>• <strong>El sacrificio:</strong> Durante un enfrentamiento en el planeta Christophsis, el Conde Dooku intentó asesinar a Quinlan Vos con rayos de la Fuerza. Ventress se interpuso y sacrificó su propia vida para salvar al hombre que amaba.<br><br>• <strong>Su funeral:</strong> Obi-Wan Kenobi y Quinlan Vos llevaron su cuerpo de regreso a Dathomir, donde fue sepultada en las aguas mágicas junto a las demás Hermanas de la Noche caídas.'
+        texto: '• <strong>Su funeral:</strong> Obi-Wan Kenobi y Quinlan Vos llevaron su cuerpo de regreso a Dathomir, donde fue sepultada en las aguas mágicas junto a las demás Hermanas de la Noche caídas.'
     },
     {
         eraId: "era-imperio",
@@ -637,10 +653,17 @@ const timelineData = [
         tipo: "descripcion",
         año: "13 ABY",
         imagenes: [
-            "assets/portadas/peliculas/prologo-rogue-one.webp",
+            "assets/portadas/peliculas/prologo-rogue-one.webp"
+        ],
+        texto: '<strong>En este punto suceden 2 cosas. Es decir, 6 años después de "La Venganza de los Sith" (Película 3):</strong><br><br><strong>1. Prólogo de "Rogue One":</strong> <em>(primeros 8 minutos de la película)</em><br>Muestra a Jyn Erso de niña. <span class="note"><br>*No es necesario ver la película en este punto</span>.'
+    },
+    {
+        eraId: "era-imperio",
+        tipo: "descripcion",
+        imagenes: [
             "assets/portadas/peliculas/prologo-han-solo.webp"
         ],
-        texto: '<strong>En este punto suceden 2 cosas. Es decir, 6 años después de "La Venganza de los Sith" (Película 3):</strong><br><br><strong>1. Prólogo de "Rogue One":</strong> <em>(primeros 8 minutos de la película)</em><br>Muestra a Jyn Erso de niña. <span class="note"><br>*No es necesario ver la película en este punto</span>.<br><br><strong>2. Prólogo de "Han Solo":</strong> <em>(primeros 14 minutos de la película)</em><br>Muestra la juventud de Han Solo en el planeta Corellia, antes de su reclutamiento imperial.'
+        texto: '<strong>2. Prólogo de "Han Solo":</strong> <em>(primeros 14 minutos de la película)</em><br>Muestra la juventud de Han Solo en el planeta Corellia, antes de su reclutamiento imperial.'
     },
     {
         eraId: "era-imperio",
