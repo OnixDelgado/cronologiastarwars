@@ -1921,7 +1921,7 @@ html {
     content: attr(data-tooltip);
     position: absolute;
     top: 150%;
-    left: 0;
+    right: 0;
     width: 220px;
     background-color: rgba(18, 18, 18, 0.95);
     color: #fff;

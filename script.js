@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const DEFAULT_IMG = 'assets/img/profile-placeholder.jpg'; // ← Cambiá el nombre si usás otra imagen
 
     // Cargar o inicializar perfiles
-    let profiles = JSON.parse(localStorage.getItem('swProfiles')) || [{ id: 'p1', name: 'Tu Nombre Jedi', img: null }];
+    let profiles = JSON.parse(localStorage.getItem('swProfiles')) || [{ id: 'p1', name: 'Tu Nombre', img: null }];
     window.activeProfileId = localStorage.getItem('swActiveProfile') || 'p1';
 
     function saveProfilesData() {
@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (btnAddProfile) {
         btnAddProfile.addEventListener('click', () => {
             const newId = 'p' + Date.now();
-            profiles.push({ id: newId, name: 'Nuevo Jedi', img: null });
+            profiles.push({ id: newId, name: 'Agregar Nombre', img: null });
             window.activeProfileId = newId;
             saveProfilesData();
             window.cargarInterfazPerfil();
@@ -433,9 +433,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // 1. CONFIGURACIÓN MANUAL (Debes cambiar esto en cada actualización)
     const APP_VERSION = "v1.0.0";
 
-const APP_CHANGELOG_CONTENT = [
-    "Se agregó el juego 'Star Wars: Zero Company' en la era de la República (20 ABY)."
-];
+    const APP_CHANGELOG_CONTENT = [
+        "Se agregó el juego 'Star Wars: Zero Company' en la era de la República (20 ABY)."
+    ];
 
     // Agregá aquí los arreglos, mejoras o cambios de la app en sí
     // (dejá el array vacío [] si no hubo mejoras en este update)
