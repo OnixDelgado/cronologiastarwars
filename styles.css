@@ -1,0 +1,2740 @@
+/* Estilos generales */
+:root {
+    --primary-color: #121212;
+    --secondary-color: #f5f5f5;
+    --text-color: #e0e0e0;
+    --dark-bg: #1a1a1a;
+    --section-bg: #2a2a2a;
+    --timeline-dot-border: #121212;
+
+    /* Colores por tipo de contenido */
+    --movie-color: #55ff55;
+    /* Verde para películas */
+    --live-action: #ffe81f;
+    /* Amarillo para live action */
+    --animated: #ff8c00;
+    /* Naranja para animadas */
+    --cortos: #ff69b4;
+    /* Rosa fuerte para Forces of Destiny */
+    --game: #aa55ff;
+    /* Violeta para juegos */
+
+    --temporada-1: #f5cd6b;
+    --temporada-2: #c62f33;
+    --temporada-3: #9d96af;
+    --temporada-4: #4c74f3;
+    --temporada-5: #f16408;
+    --temporada-6: #ab8106;
+    --temporada-7: #d22b28;
+    /* ... colores para otras temporadas */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    background-image: url('assets/img/fondo-estrellas.avif');
+    /* <--- Ruta local */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--live-action);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 3px solid var(--live-action);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/img/fondo-header.avif') center/cover;
+    /* <--- Ruta local */
+    opacity: 0.2;
+    z-index: -1;
+}
+
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Navegación */
+nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: var(--live-action);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--live-action);
+    color: var(--primary-color);
+}
+
+/* Contenido principal */
+main {
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 8px;
+    margin: 2rem auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    margin-top: 140px;
+    /* Espacio para ambos elementos sticky */
+
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    animation: fadeIn 0.6s ease-out forwards;
+    scroll-margin-top: 60px;
+    /* <-- Evita que el título se pegue al techo en celulares */
+}
+
+section:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+section:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+section:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+section:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+section h2 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--live-action);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--live-action);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.era-description {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+#intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: rgba(18, 18, 18, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid var(--live-action);
+}
+
+#intro h2 {
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+/* Timeline items */
+.timeline-item {
+    position: relative;
+    padding: 1.5rem 2rem 1.5rem 3rem;
+    margin-bottom: 2rem;
+    background-color: rgba(42, 42, 42, 0.8);
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-item h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.timeline-item ul {
+    list-style-position: inside;
+    padding-left: 0.5rem;
+}
+
+.timeline-item li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+    list-style: none;
+}
+
+.timeline-item li::before {
+    content: "•";
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.timeline-item strong {
+    font-weight: 700;
+}
+
+/* Estilos específicos por tipo de contenido */
+.timeline-item.movie {
+    border-left: 4px solid var(--movie-color);
+}
+
+.timeline-item.movie h3,
+.timeline-item.movie strong {
+    color: var(--movie-color);
+}
+
+.timeline-item.movie li::before {
+    color: var(--movie-color);
+}
+
+.timeline-item.movie:hover {
+    box-shadow: 0 5px 15px rgba(85, 255, 85, 0.2);
+}
+
+.timeline-item.live-action {
+    border-left: 4px solid var(--live-action);
+}
+
+.timeline-item.live-action h3,
+.timeline-item.live-action strong {
+    color: var(--live-action);
+}
+
+.timeline-item.live-action li::before {
+    color: var(--live-action);
+}
+
+.timeline-item.live-action:hover {
+    box-shadow: 0 5px 15px rgba(255, 232, 31, 0.2);
+}
+
+.timeline-item.animated {
+    border-left: 4px solid var(--animated);
+}
+
+.timeline-item.animated h3,
+.timeline-item.animated strong {
+    color: var(--animated);
+}
+
+.timeline-item.animated li::before {
+    color: var(--animated);
+}
+
+.timeline-item.animated:hover {
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+}
+
+.timeline-item.cortos {
+    border-left: 4px solid var(--cortos);
+}
+
+.timeline-item.cortos h3,
+.timeline-item.cortos strong {
+    color: var(--cortos);
+}
+
+.timeline-item.cortos li::before {
+    color: var(--cortos);
+}
+
+.timeline-item.cortos:hover {
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.timeline-item.game {
+    border-left: 4px solid var(--game);
+}
+
+.timeline-item.game h3,
+.timeline-item.game strong {
+    color: var(--game);
+}
+
+.timeline-item.game li::before {
+    color: var(--game);
+}
+
+.timeline-item.game:hover {
+    box-shadow: 0 5px 15px rgba(170, 85, 255, 0.2);
+}
+
+/* Estilos para los bullets de cada temporada */
+.temporada-1::before {
+    color: var(--temporada-1) !important;
+    /* Verde para temporada 1 */
+}
+
+.temporada-2::before {
+    color: var(--temporada-2) !important;
+    /* Azul para temporada 2 */
+}
+
+.temporada-3::before {
+    color: var(--temporada-3) !important;
+    /* Magenta para temporada 3 */
+}
+
+.temporada-4::before {
+    color: var(--temporada-4) !important;
+    /* Amarillo para temporada 4 */
+}
+
+.temporada-5::before {
+    color: var(--temporada-5) !important;
+    /* Cyan para temporada 5 */
+}
+
+.temporada-6::before {
+    color: var(--temporada-6) !important;
+    /* Naranja para temporada 6 */
+}
+
+.temporada-7::before {
+    color: var(--temporada-7) !important;
+    /* Verde lima para temporada 7 */
+}
+
+/*Modificar estilo de links*/
+
+/* Estilos para enlaces dentro de timeline-item */
+.timeline-item a,
+.link-videoyoutube {
+    color: #4fc3f7 !important;
+    /* Color azul claro - puedes cambiarlo */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 1px dotted currentColor;
+    /* Subrayado punteado */
+}
+
+.timeline-item a:hover,
+.link-videoyoutube:hover {
+    color: #ffeb3b;
+    /* Color amarillo al pasar el mouse */
+    border-bottom-style: solid;
+    /* Subrayado continuo al hover */
+    text-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
+    /* Efecto de brillo */
+}
+
+/* Estilos específicos para enlaces en items animados */
+.timeline-item.animated a,
+.link-videoyoutube {
+    color: var(--animated);
+    /* Usa el color naranja de las animadas */
+}
+
+.timeline-item.animated a:hover,
+.link-videoyoutube:hover {
+    color: #ffe81f;
+    /* Amarillo al hover */
+}
+
+.timeline-item a:visited,
+.link-videoyoutube:visited {
+    color: #4fc3f7;
+    /* Mismo color que en estado normal */
+}
+
+/* Línea de tiempo en versión desktop */
+@media (min-width: 768px) {
+
+    section {
+        scroll-margin-top: 140px;
+        /* Da el espacio exacto para esquivar el menú y los filtros */
+    }
+
+    .timeline-item {
+        margin-left: 50px;
+    }
+
+    .timeline-item {
+        margin-left: 50px;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid var(--timeline-dot-border);
+        z-index: 1;
+    }
+
+    .timeline-item.movie::before {
+        background-color: var(--movie-color);
+    }
+
+    .timeline-item.live-action::before {
+        background-color: var(--live-action);
+    }
+
+    .timeline-item.animated::before {
+        background-color: var(--animated);
+    }
+
+    .timeline-item.cortos::before {
+        background-color: var(--cortos);
+    }
+
+    .timeline-item.game::before {
+        background-color: var(--game);
+    }
+
+    /* Línea vertical */
+    #era-republica .timeline-item::after,
+    #era-imperio .timeline-item::after,
+    #era-nueva-republica .timeline-item::after,
+    #era-resistencia .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: -21px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--live-action);
+    }
+
+    /* Ajustar altura del último elemento */
+    #era-republica .timeline-item:last-child::after,
+    #era-imperio .timeline-item:last-child::after,
+    #era-nueva-republica .timeline-item:last-child::after,
+    #era-resistencia .timeline-item:last-child::after {
+        height: 20px;
+    }
+}
+
+/* Leyenda de colores */
+.leyenda-colores {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.leyenda-colores h3 {
+    margin-top: .5rem;
+    color: white;
+    border-bottom: none;
+}
+
+.leyenda-colores ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    justify-content: center;
+}
+
+.leyenda-colores li {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.leyenda-movie {
+    background-color: var(--movie-color);
+    color: black;
+}
+
+.leyenda-live-action {
+    background-color: var(--live-action);
+    color: black;
+}
+
+.leyenda-animated {
+    background-color: var(--animated);
+    color: black;
+}
+
+.leyenda-cortos {
+    background-color: var(--cortos);
+    color: black;
+}
+
+.leyenda-game {
+    background-color: var(--game);
+    color: black;
+}
+
+/* =========================================
+   FOOTER (PIE DE PÁGINA) MEJORADO
+   ========================================= */
+footer {
+    background-color: rgba(15, 15, 15, 0.95);
+    /* Color oscuro más sólido y premium */
+    color: #a0a0a0;
+    /* Texto un poco más gris para que no compita con el contenido */
+    text-align: center;
+    padding: 2.5rem 0;
+    /* Padding parejo arriba y abajo */
+    margin-top: 3rem;
+    /* Lo separamos bien del contenido principal */
+    border-top: 2px solid rgba(255, 232, 31, 0.3);
+    /* Borde amarillo sutil */
+    font-size: 0.9rem;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    /* Sombra hacia arriba */
+    position: relative;
+    z-index: 10;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Espaciado perfecto entre los párrafos */
+}
+
+footer p {
+    margin: 0;
+    /* Limpiamos los márgenes por defecto de los párrafos */
+    line-height: 1.5;
+    max-width: 800px;
+    /* Evita que el texto se estire demasiado en pantallas gigantes */
+}
+
+/* Solo el primer p directo del container (los textos legales), no los p dentro de creator-info */
+footer>.container>p:first-of-type {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* Ajuste sutil para celulares */
+@media (max-width: 768px) {
+    footer {
+        padding-bottom: 5rem;
+        /* Le damos espacio extra abajo solo en móvil, por si los filtros tapan */
+        font-size: 0.85rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales (mantén los anteriores) */
+
+/* Filtros */
+.filtros-container {
+    position: sticky;
+    top: var(--nav-height, 60px);
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 10px 0;
+    z-index: 90;
+    /* Por debajo del menú principal */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+}
+
+/* Contenedor interno */
+.filtros-container .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Título "Filtrar contenido" */
+.filtros-container h3 {
+    color: var(--live-action);
+    margin-right: 20px;
+    font-size: 1rem;
+    white-space: nowrap;
+    border-left: 2px solid #ffe81f;
+    padding: 10px;
+}
+
+/* Grupo de checkboxes */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.filtro-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.filtro-option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filtro-checkbox {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.filtro-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Ocultar elementos filtrados */
+.timeline-item.hidden {
+    display: none;
+}
+
+
+/* Estilos para el contenedor sticky */
+.nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Menú principal */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.main-nav li {
+    margin: 0 1rem;
+}
+
+.main-nav a {
+    color: var(--live-action);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: white;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--live-action);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Filtros */
+.filtros-container {
+    position: sticky;
+    top: 60px;
+    /* Altura del nav de eras */
+    z-index: 90;
+    /* Un nivel por debajo del nav */
+    background-color: rgba(0, 0, 0, 0.93);
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 232, 31, 0.2);
+}
+
+.filtros {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.filtros.active {
+    max-height: 500px;
+    /* Ajustá según el contenido */
+    opacity: 1;
+}
+
+
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--live-action);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/*Estilos por temporada de Clone Wars*/
+
+.timeline-item.animated li.temporada-1,
+.timeline-item.animated li.temporada-1 strong {
+    color: var(--temporada-1);
+}
+
+.timeline-item.animated li.temporada-2,
+.timeline-item.animated li.temporada-2 strong {
+    color: var(--temporada-2);
+}
+
+.timeline-item.animated li.temporada-3,
+.timeline-item.animated li.temporada-3 strong {
+    color: var(--temporada-3);
+}
+
+.timeline-item.animated li.temporada-4,
+.timeline-item.animated li.temporada-4 strong {
+    color: var(--temporada-4);
+}
+
+.timeline-item.animated li.temporada-5,
+.timeline-item.animated li.temporada-5 strong {
+    color: var(--temporada-5);
+}
+
+.timeline-item.animated li.temporada-6,
+.timeline-item.animated li.temporada-6 strong {
+    color: var(--temporada-6);
+}
+
+.timeline-item.animated li.temporada-7,
+.timeline-item.animated li.temporada-7 strong {
+    color: var(--temporada-7);
+}
+
+/* Añade estas reglas al final de tu CSS */
+
+/* Elimina cualquier regla contradictoria para era-description */
+.era-description[data-categories] {
+    transition: all 0.3s ease;
+}
+
+/* Reglas para el filtrado - solución definitiva */
+[data-categories].filtered-out {
+    display: none !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Reset para elementos que deben ser siempre visibles */
+.era-description:not([data-categories]) {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+#texto-condicional {
+    display: none;
+    /* Oculto por defecto */
+    transition: opacity 0.3s ease;
+}
+
+/* Solo se mostrará cuando la condición en JS se cumpla */
+
+.filtro-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.filtro-option input[disabled]+.filtro-label {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 0.5rem;
+        right: 1rem;
+        z-index: 1002;
+        /* Must be > 1001 of .main-nav.active to be clickable */
+    }
+
+    .main-nav {
+        display: none;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .main-nav.active {
+        display: block;
+        position: fixed;
+        top: var(--nav-height, 60px);
+        height: auto;
+        left: 1px;
+        width: 100%;
+        background: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.5) 80%, rgba(222, 205, 53, 0) 100%);
+        max-height: 500px;
+        opacity: 1;
+        z-index: 1001;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    .main-nav li {
+        margin: 0.3rem 0;
+        text-align: center;
+    }
+
+    .main-nav a {
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filtro-option {
+        width: 100%;
+    }
+
+    .nav-wrapper {
+        position: static;
+        /* Nav de eras ya no sticky en móvil */
+    }
+
+    .filtros-container {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        border-top: 2px solid var(--live-action);
+    }
+
+    main {
+        margin-top: 20px;
+        margin-bottom: 60px;
+        /* Espacio para filtros en bottom */
+    }
+
+    .filtros {
+        display: none;
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.98);
+        padding: 15px;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.8);
+    }
+
+    .filtros.active {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .filtro-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        color: var(--live-action);
+        font-size: 1.2rem;
+        padding: 5px 15px;
+
+    }
+
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filtro-option {
+        width: 100%;
+    }
+
+    .filtros-container {
+        top: auto;
+        /* En móviles el filtro no es sticky */
+        position: relative;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.3rem 0;
+    }
+
+    .timeline-item {
+        padding: 1.2rem;
+    }
+
+    .leyenda-colores ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .intro-tracker-help {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* =======================================
+       FILTROS EN MÓVIL (Botón Flotante)
+       ======================================= */
+
+    /* Reseteamos el contenedor principal para que no moleste */
+    .filtros-container {
+        position: static;
+        padding: 0;
+        border: none;
+    }
+
+    .filtros-container h3 {
+        display: none;
+        /* Ocultamos el texto "Filtrar contenido" para ahorrar espacio */
+    }
+
+    main {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    /* 1. Botón Flotante (Siempre visible en la esquina) */
+    .filtro-toggle {
+        display: flex !important;
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: var(--live-action);
+        color: var(--primary-color);
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(255, 232, 31, 0.4);
+        z-index: 1000;
+        font-size: 1.4rem;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* 2. Panel de Filtros Emergente */
+    .filtros {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+
+        position: fixed;
+        bottom: 95px;
+        /* Aparece justo arriba del botón */
+        right: 25px;
+        background-color: rgba(20, 20, 20, 0.98);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+        z-index: 999;
+
+        /* Animación suave de entrada (efecto burbuja) */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.95);
+        transform-origin: bottom right;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Cuando se toca el botón, el panel se vuelve visible */
+    .filtros.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    .filtro-option {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .filtros {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        justify-content: center !important;
+    }
+
+    .filtros-container {
+        position: sticky;
+        /* Usamos la variable dinámica que calcula la altura exacta y le restamos 1px para sellar el hueco */
+        top: calc(var(--nav-height, 60px) - 1px);
+        background-color: rgba(0, 0, 0, 0.98);
+        /* Fondo casi totalmente negro para que se vea como un panel sólido */
+    }
+
+    .filtro-toggle {
+        display: none !important;
+        /* No mostrar el botón en escritorio */
+    }
+}
+
+@media (max-width: 358px) {
+    .filtros-container .container {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .filtros-container h3 {
+        font-size: 14px;
+        /* Achica el texto */
+        margin: 4px 0;
+        /* Reduce márgenes verticales */
+        line-height: 1.2;
+    }
+
+    .filtros {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .filtro-option {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .filtro-toggle i {
+        font-size: 16px;
+    }
+}
+
+
+
+
+.filtro-toggle:hover,
+.menu-toggle:hover {
+    background-color: rgba(255, 232, 31, 0.1);
+    /* suave amarillo */
+    color: #ffe81f;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+}
+
+.filtro-toggle:hover,
+.menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* =========================================
+   MEJORAS UI: FILTROS CON CHECKBOX VISIBLE
+   ========================================= */
+
+/* 1. Contenedor del filtro */
+.filtro-option {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    /* Bordes un poco más rectos para acompañar el checkbox */
+    background-color: rgba(42, 42, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filtro-option:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 2. El Checkbox visible */
+.filtro-checkbox {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    /* Separación con el texto */
+    cursor: pointer;
+    accent-color: var(--live-action);
+    /* Pinta el tilde del color de Star Wars en navegadores modernos */
+}
+
+/* 3. El Texto (Inactivo / Gris por defecto) */
+.filtro-label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #666666;
+    /* Letras grises/apagadas cuando está destildado */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* 4. ESTADOS ACTIVOS (Checked) - Se encienden los colores de las letras */
+.filtro-checkbox:checked+.filtro-label.pelicula {
+    color: var(--movie-color);
+    text-shadow: 0 0 8px rgba(85, 255, 85, 0.4);
+}
+
+.filtro-checkbox:checked+.filtro-label.live-action {
+    color: var(--live-action);
+    text-shadow: 0 0 8px rgba(255, 232, 31, 0.4);
+}
+
+.filtro-checkbox:checked+.filtro-label.animada {
+    color: var(--animated);
+    text-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.filtro-checkbox:checked+.filtro-label.cortos {
+    color: var(--cortos);
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+}
+
+.filtro-checkbox:checked+.filtro-label.juego {
+    color: var(--game);
+    text-shadow: 0 0 8px rgba(170, 85, 255, 0.4);
+}
+
+/* 5. (Opcional) Iluminar sutilmente el borde del contenedor si está activo */
+.filtro-option:has(.filtro-checkbox:checked[data-category="movie"]) {
+    border-color: rgba(85, 255, 85, 0.3);
+}
+
+.filtro-option:has(.filtro-checkbox:checked[data-category="live-action"]) {
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+.filtro-option:has(.filtro-checkbox:checked[data-category="animated"]) {
+    border-color: rgba(255, 140, 0, 0.3);
+}
+
+.filtro-option:has(.filtro-checkbox:checked[data-category="cortos"]) {
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+.filtro-option:has(.filtro-checkbox:checked[data-category="game"]) {
+    border-color: rgba(170, 85, 255, 0.3);
+}
+
+/* =========================================
+   SISTEMA DE TRACKING (VISTO/NO VISTO)
+   ========================================= */
+
+/* Alinear el título principal con su checkbox */
+.tracking-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.tracking-header h3 {
+    margin-bottom: 0 !important;
+    /* Anulamos el margin del H3 original para que quede centrado */
+}
+
+/* Alinear cada capítulo con su checkbox */
+.tracking-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+/* Ocultar la viñeta de punto (•) original ya que ahora usamos el checkbox */
+.timeline-item ul.tracking-list li:has(.tracking-event)::before {
+    display: none;
+}
+
+.timeline-item ul.tracking-list li:has(.tracking-event) {
+    padding-left: 0;
+}
+
+/* Estilos de los Checkboxes */
+.tracker-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 4px;
+    /* Baja sutilmente el check para alinear con el texto */
+    accent-color: var(--live-action);
+    /* Color amarillo de SW al tildar */
+}
+
+.tracking-header .tracker-checkbox {
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+}
+
+/* Estilo del texto que funciona como Label */
+.tracker-label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.tracker-label:hover {
+    opacity: 0.8;
+}
+
+/* EFECTO DE COMPLETADO (Visto) */
+.tracker-label.completado {
+    opacity: 0.3;
+    /* Hace el texto transparente */
+    text-decoration: line-through;
+    /* Tacha el texto */
+    filter: grayscale(100%);
+    /* Le quita los colores (Ej: el texto naranja o verde) */
+}
+
+/* Evitar que se tachen las etiquetas <strong> de color en The Clone Wars, 
+   solo queremos que se opaque para que la temporada siga siendo visible */
+.tracker-label.completado strong {
+    text-decoration: none;
+}
+
+/* =========================================
+   ESTILOS PARA LOS CHECKBOXES DE LAS ERAS (H2)
+   ========================================= */
+
+.tracking-era {
+    border-bottom: 2px solid var(--live-action);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.tracking-era h2 {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.tracking-era .tracker-checkbox {
+    width: 26px;
+    height: 26px;
+    margin-top: 2px;
+}
+
+/* =========================================
+   ESTILOS PARA LA CAJA DE AYUDA (INTRO)
+   ========================================= */
+
+.intro-tracker-help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background-color: rgba(255, 232, 31, 0.08);
+    /* Fondo con un toque sutil del amarillo Star Wars */
+    border-radius: 8px;
+    border: 1px dashed var(--live-action);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.intro-tracker-help:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 232, 31, 0.12);
+}
+
+.intro-tracker-help i {
+    font-size: 2.2rem;
+    color: var(--live-action);
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.4);
+}
+
+.intro-tracker-help p {
+    margin: 0 !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* =========================================
+   ETIQUETA DE AÑO (ABY / DBY)
+   ========================================= */
+
+.badge-year {
+    margin-left: auto;
+    /* Esto empuja la etiqueta automáticamente hacia la extrema derecha */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #b0b0b0;
+    /* Gris sutil por defecto */
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    /* Evita que el texto del año se parta en dos renglones */
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover: se ilumina cuando pasás el mouse por el recuadro */
+.timeline-item:hover .badge-year {
+    color: var(--live-action);
+    background-color: rgba(255, 232, 31, 0.08);
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+/* Ajuste para celulares muy pequeños */
+@media (max-width: 480px) {
+    .tracking-header {
+        align-items: flex-start;
+        /* Asegura que todo el bloque se alinee arriba */
+    }
+
+    .tracker-label {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 0;
+        font-size: 0.9rem;
+        /* Achica un poquito el texto normal de los capítulos */
+    }
+
+    .tracker-label h3 {
+        font-size: 0.9rem;
+        /* Achica un poquito los títulos principales (antes 1.2rem) */
+    }
+
+    .badge-year {
+        margin-left: auto;
+        align-self: flex-start;
+        /* <--- LA MAGIA: Lo clava siempre arriba a la derecha */
+        margin-top: 2px;
+        /* Ajuste sutil para que quede a la misma altura que el título */
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+}
+
+/* =========================================
+   COLORES DBY Y TOOLTIP (VENTANITA FLOTANTE)
+   ========================================= */
+
+/* Efecto hover luminoso AZUL solo para la clase DBY */
+.timeline-item:hover .badge-year.badge-dby,
+.badge-year.badge-dby:hover {
+    color: #4fc3f7;
+    /* Azul claro estilo holograma/sable */
+    background-color: rgba(79, 195, 247, 0.08);
+    border-color: rgba(79, 195, 247, 0.4);
+}
+
+/* Configuramos la etiqueta para que muestre un cursor de ayuda (?) */
+.badge-year {
+    position: relative;
+    cursor: help;
+}
+
+/* La cajita del Tooltip */
+.badge-year::after {
+    content: attr(data-tooltip);
+    /* Lee el texto de JS automáticamente */
+    position: absolute;
+    bottom: 140%;
+    /* Lo ubica arriba de la etiqueta */
+    right: 0;
+    background-color: rgba(18, 18, 18, 0.95);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    pointer-events: none;
+    /* Evita que el mouse parpadee */
+}
+
+/* El pequeño triangulito debajo de la caja para que parezca un globo de diálogo */
+.badge-year::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    /* Acomoda la flecha hacia el lado derecho */
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(18, 18, 18, 0.95) transparent transparent transparent;
+
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Animación: Aparece cuando pasás el mouse encima o al mantener pulsado (celulares) */
+.badge-year:hover::after,
+.badge-year:hover::before,
+.badge-year:active::after,
+.badge-year:active::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Etiqueta incrustada en medio del texto */
+.badge-year.badge-inline {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+/* =========================================
+   PÓSTERS E IMÁGENES (RESPONSIVE INTELIGENTE)
+   ========================================= */
+
+/* Comportamiento base (MÓVILES) */
+.poster-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Alinea a la derecha */
+    margin-top: -10px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    /* Súper importante: Ancla el tooltip aquí */
+}
+
+.poster-toggle-check {
+    display: none;
+}
+
+/* El botón de "Ver portada" */
+.btn-ver-portada {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    user-select: none;
+    z-index: 10;
+}
+
+.btn-ver-portada:hover {
+    background-color: rgba(255, 232, 31, 0.1);
+    color: var(--live-action);
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+/* Estado inicial de la imagen en móvil (Estilo Tooltip) */
+.poster-wrapper {
+    display: none;
+    position: absolute;
+    /* Saca la imagen del flujo del texto para no empujarlo */
+    top: 35px;
+    /* Lo ubica justo debajo del botón */
+    right: 0;
+    z-index: 100;
+    /* Lo hace flotar por encima de toda la caja */
+
+    /* Diseño tipo Pop-up/Tooltip */
+    background-color: rgba(18, 18, 18, 0.95);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Cuando se toca el botón, se muestra el tooltip con flexbox para soportar varias imágenes */
+.poster-toggle-check:checked~.poster-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Si no caben a lo ancho, bajan al siguiente renglón */
+    justify-content: center;
+    gap: 10px;
+    /* Separación entre las imágenes */
+    width: max-content;
+    /* Se adapta al número de imágenes */
+    max-width: 290px;
+    /* Evita que se salga de la pantalla del celular */
+}
+
+/* El botón se enciende cuando la imagen está visible */
+.poster-toggle-check:checked~.btn-ver-portada {
+    background-color: rgba(255, 232, 31, 0.1);
+    color: var(--live-action);
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+.timeline-poster {
+    width: 100%;
+    max-width: 140px;
+    border-radius: 6px;
+    display: block;
+    /* Evita márgenes raros dentro del tooltip */
+    object-fit: cover;
+}
+
+/* =========================================
+   COMPORTAMIENTO EN PC (>= 768px)
+   ========================================= */
+@media (min-width: 768px) {
+    .poster-container {
+        display: block;
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+        position: static;
+        /* Reseteamos el ancla */
+    }
+
+    .btn-ver-portada {
+        display: none !important;
+    }
+
+    .poster-wrapper {
+        display: flex !important;
+        flex-direction: column;
+        /* Apila las imágenes verticalmente */
+        gap: 15px;
+        /* <--- ESTA ES LA MAGIA: 15px de separación vertical */
+        position: static;
+        background: none;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        margin-top: 0;
+    }
+
+    .timeline-poster {
+        max-width: 150px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-poster {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* =========================================
+   FONDO OSCURO PARA MENÚ MÓVIL (OVERLAY)
+   ========================================= */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    /* Se pone por encima de todo el contenido */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   BARRA DE PROGRESO GLOBAL (GAMIFICACIÓN)
+   ========================================= */
+.progress-container {
+    background-color: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(255, 232, 31, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.progress-container:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 232, 31, 0.5);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.progress-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--live-action);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.progress-percentage {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4fc3f7;
+    /* Azul sable de luz */
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.6);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    /* Inicia en 0, el JS lo actualiza */
+    background: linear-gradient(90deg, #0288d1, #4fc3f7, #e1f5fe);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #4fc3f7, 0 0 20px #4fc3f7;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.progress-message {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #cccccc;
+    text-align: center;
+    font-style: italic;
+}
+
+/* =========================================
+   BARRA DE PROGRESO STICKY (COMPACTA Y ANCHA)
+   ========================================= */
+.sticky-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 98;
+    /* En PC debe estar debajo del nav (100) y de filtros (99 si lo tuviera) */
+    background-color: rgba(18, 18, 18, 0.98);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, top 0.2s ease;
+    border-bottom: 2px solid rgba(255, 232, 31, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+}
+
+.sticky-progress-container.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sticky-progress-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 15px;
+    width: 100%;
+}
+
+.sticky-progress-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-transform: uppercase;
+}
+
+.sticky-progress-percentage {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4fc3f7;
+    text-shadow: 0 0 5px rgba(79, 195, 247, 0.5);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.sticky-progress-bg {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sticky-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0288d1, #4fc3f7, #e1f5fe);
+    box-shadow: 0 0 10px #4fc3f7;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* En celulares, el menú toggle está en z-index 100, la barra arriba necesita z-index 98 para quedar por debajo del menú hamburguesa */
+@media (max-width: 768px) {
+    .sticky-progress-container {
+        z-index: 98;
+        /* Hacemos un poco de espacio en la izquierda para no pegar el texto al botón */
+        padding-right: 55px;
+    }
+
+    .sticky-progress-title {
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================================
+   BOTÓN "VOLVER ARRIBA"
+   ========================================= */
+#btn-volver-arriba {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(26, 26, 26, 0.9);
+    color: var(--live-action);
+    border: 2px solid var(--live-action);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+
+    /* Oculto por defecto usando opacidad y transform para una entrada suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+/* Esta clase se la agregará JavaScript cuando hagamos scroll */
+#btn-volver-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-volver-arriba:hover {
+    background-color: var(--live-action);
+    color: var(--primary-color);
+    transform: translateY(-5px) scale(1.1);
+    /* Efecto de despegue al pasar el mouse */
+    box-shadow: 0 6px 20px rgba(255, 232, 31, 0.6);
+}
+
+/* Ajuste para celulares: Lo movemos a la izquierda para que no tape el botón de filtros */
+/* =========================================
+   BOTÓN PWA (Instalar App)
+   ========================================= */
+.install-pwa-container {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    /* display: flex se setea por JS cuando está disponible */
+    align-items: center;
+    gap: 8px;
+    z-index: 100;
+}
+
+.btn-install {
+    background-color: rgba(255, 232, 31, 0.15);
+    color: var(--live-action);
+    border: 1px solid var(--live-action);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-install:hover {
+    background-color: var(--live-action);
+    color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 232, 31, 0.6);
+}
+
+.install-tooltip-icon {
+    color: #4fc3f7;
+    font-size: 1.1rem;
+    cursor: help;
+    position: relative;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.install-tooltip-icon:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(79, 195, 247, 0.8);
+}
+
+/* Tooltip popup para el botón PWA */
+.install-tooltip-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 150%;
+    left: 0;
+    width: 220px;
+    background-color: rgba(18, 18, 18, 0.95);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid rgba(79, 195, 247, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 101;
+    pointer-events: none;
+    line-height: 1.4;
+}
+
+.install-tooltip-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    #btn-volver-arriba {
+        right: auto;
+        left: 20px;
+        bottom: 25px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    /* Reducir tamaños generales de letras para mejor lectura en celulares */
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .timeline-item h3 {
+        font-size: 1.15rem;
+    }
+
+    .timeline-item p,
+    .timeline-item li {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* PWA Mobile */
+    .install-pwa-container {
+        top: 10px;
+        left: 10px;
+    }
+
+    .btn-install {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .install-tooltip-icon::before {
+        width: 180px;
+    }
+}
+
+/* =========================================
+   ADAPTACIONES PARA PANTALLAS PEQUEÑAS (IPHONE 5 - 320px)
+   ========================================= */
+@media (max-width: 358px) {
+    header h1 {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 0.85rem;
+    }
+
+    .timeline-item h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-item {
+        padding: 1rem 0.8rem;
+    }
+
+    .tracker-label h3 {
+        font-size: 0.95rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.5rem;
+    }
+
+    .filtros-container .container {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .filtros-container h3 {
+        font-size: 14px;
+        margin: 4px 0;
+        line-height: 1.2;
+    }
+
+    .filtros {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .filtro-option {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .filtro-toggle i {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   ESTILOS PARA VIDEOS DE YOUTUBE INCRUSTADOS
+   ========================================= */
+.youtube-video-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 15px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 232, 31, 0.2);
+    /* Fuerza a mantener un aspecto rectangular 16:9 perfecto */
+    aspect-ratio: 16 / 9;
+}
+
+.youtube-video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+
+
+
+/* =========================================
+   NUEVO SISTEMA DE NAVEGACIÓN Y PERFIL (SIDEBAR)
+   ========================================= */
+
+/* Botón Hamburguesa Fijo (Siempre Visible) */
+.menu-toggle {
+    display: flex !important;
+    /* Fuerza su aparición globalmente */
+    position: fixed !important;
+    /* Lo ancla a la pantalla */
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 1002 !important;
+    background: rgba(18, 18, 18, 0.9) !important;
+    border: 2px solid var(--live-action) !important;
+    border-radius: 8px !important;
+    width: 45px !important;
+    height: 45px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6) !important;
+    cursor: pointer !important;
+    /* Asegura que el cursor cambie al pasar el mouse */
+    color: var(--live-action) !important;
+    /* Asegura el color del icono */
+    padding: 0 !important;
+    /* Limpia cualquier padding residual */
+}
+
+/* Botón Instalar PWA Fijo (Arriba a la Derecha) */
+.install-pwa-container {
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important;
+    left: auto !important;
+    z-index: 1002 !important;
+    flex-direction: row-reverse;
+    /* Pone el icono de ayuda a la izquierda del botón */
+}
+
+/* El Sidebar (Panel Lateral) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    /* Oculto por defecto */
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(15, 15, 15, 0.98) 0%, rgba(20, 20, 20, 0.98) 100%);
+    border-right: 2px solid var(--live-action);
+    z-index: 1001;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* 1. SECCIÓN DE PERFIL */
+.sidebar-profile {
+    padding: 30px 20px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 40px;
+    /* Espacio para el botón de cerrar/hamburguesa */
+}
+
+.profile-img-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 3px solid var(--live-action);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.profile-img-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--live-action);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: bottom 0.3s ease;
+}
+
+.profile-img-container:hover #profile-img {
+    filter: brightness(0.6);
+}
+
+.profile-img-container:hover .profile-img-overlay {
+    bottom: 0;
+}
+
+.profile-name {
+    color: var(--live-action);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: none;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.profile-name:focus,
+.profile-name:hover {
+    border-bottom: 1px dashed var(--live-action);
+}
+
+/* 2. ENLACES CENTRALES */
+.sidebar-links {
+    flex-grow: 1;
+    /* Ocupa el espacio restante empujando el botón abajo */
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.sidebar-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    padding: 5px 20px;
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Reducimos la separación entre ícono y texto (antes 12px) */
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    /* Achicamos la letra (antes 0.95rem) */
+    padding: 8px 12px;
+    /* Reducimos los bordes internos (antes 10px 15px) */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar-links a:hover {
+    background: rgba(255, 232, 31, 0.1);
+    color: var(--live-action);
+    transform: translateX(5px);
+}
+
+.sidebar-links a i {
+    width: 20px;
+    /* Achicamos el espacio que ocupa el ícono (antes 24px) */
+    text-align: center;
+    font-size: 1rem;
+    /* Achicamos el tamaño del ícono (antes 1.1rem) */
+}
+
+/* 3. FOOTER Y BOTÓN DE ACTUALIZAR */
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-update {
+    width: 100%;
+    background: transparent;
+    color: #4fc3f7;
+    border: 1px solid #4fc3f7;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-update:hover {
+    background: #4fc3f7;
+    color: #121212;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+}
+
+/* TOAST NOTIFICATION */
+.toast {
+    position: fixed;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(18, 18, 18, 0.95);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: 1px solid var(--live-action);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toast.show {
+    bottom: 30px;
+}
+
+/* Ajustes de anclaje (Eliminamos el salto del menú viejo) */
+.filtros-container {
+    top: 0 !important;
+}
+
+main {
+    margin-top: 30px !important;
+}
+
+
+
+
+
+/* =========================================
+   ESTILOS DE PERFILES MÚLTIPLES Y AJUSTES FINALES
+   ========================================= */
+
+/* Achicar un poco los enlaces de las ERAS en el menú */
+.sidebar-links a {
+    padding: 10px 15px;
+    /* Más compacto */
+    font-size: 0.95rem;
+    /* Letra un poco más pequeña */
+}
+
+/* Estilos de la botonera de Perfiles */
+.profile-selector-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.profile-select {
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--live-action);
+    border: 1px solid var(--live-action);
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 0.85rem;
+    outline: none;
+    max-width: 140px;
+    cursor: pointer;
+}
+
+.btn-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-icon:hover {
+    background: var(--live-action);
+    color: var(--primary-color);
+    border-color: var(--live-action);
+}
+
+/* Evitar que el título del Header choque con los botones flotantes en celulares */
+@media (max-width: 768px) {
+    header {
+        padding-top: 5rem;
+        /* Le da espacio a la hamburguesa */
+    }
+}
+
+
+
+
+
+/* =========================================
+   COMPACTAR SIDEBAR PARA TELÉFONOS MUY CHICOS (Ej: iPhone 5/SE)
+   ========================================= */
+@media (max-width: 380px) {
+
+    /* 1. Reducimos el espacio general del encabezado del perfil */
+    .sidebar-profile {
+        padding: 15px 15px 10px;
+        /* Menos espacio interno */
+        margin-top: 30px;
+        /* Menos margen arriba para pegarlo al techo */
+    }
+
+    /* 2. Achicamos la foto a la mitad */
+    .profile-img-container {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+        border-width: 2px;
+    }
+
+    /* 3. Letras del nombre y selector más pequeños */
+    .profile-name {
+        font-size: 0.95rem;
+        min-width: 120px;
+    }
+
+    .profile-selector-container {
+        margin-top: 8px;
+    }
+
+    .profile-select {
+        padding: 4px;
+        font-size: 0.75rem;
+    }
+
+    .btn-icon {
+        padding: 4px 8px;
+    }
+
+    /* 4. Hacemos los botones de las ERAS aún más finos para que entren todos */
+    .sidebar-links a {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
+/* =========================================
+   BARRA SUPERIOR NATIVA PARA CELULARES
+   ========================================= */
+.top-bar-bg {
+    display: none;
+    /* Oculta en PC */
+}
+
+@media (max-width: 768px) {
+    .top-bar-bg {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background-color: rgba(18, 18, 18, 0.98);
+        border-bottom: 2px solid rgba(255, 232, 31, 0.3);
+        z-index: 1001;
+        /* Queda debajo de los botones (1002) pero encima de la página */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Le devolvemos el espacio interior a la barra sticky porque ya no choca con el botón */
+    .sticky-progress-container {
+        padding-right: 15px !important;
+        z-index: 1000 !important;
+        /* Pasa por debajo de la nueva top-bar */
+    }
+
+    /* Empujamos el encabezado principal hacia abajo para que no lo tape la barra */
+    header {
+        padding-top: 6.5rem !important;
+    }
+}
+
+
+/* Footer compacto del sidebar: una sola fila */
+.sidebar-footer {
+    padding: 10px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.version-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.version-info {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+#app-version-display {
+    color: var(--live-action);
+}
+
+/* Botón de interrogación (?) */
+.btn-icon-changelog {
+    background: transparent;
+    color: var(--live-action);
+    border: 1px solid var(--live-action);
+    border-radius: 8px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon-changelog:hover {
+    background: var(--live-action);
+    color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
+}
+
+/* Fondo oscuro del Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(3px);
+    /* Difumina el fondo sutilmente */
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenedor del Modal */
+.modal-content {
+    background: rgba(20, 20, 20, 0.98);
+    border: 2px solid var(--live-action);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--live-action);
+    font-size: 1.1rem;
+    border-bottom: none;
+    padding: 0;
+}
+
+.btn-close-modal {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-close-modal:hover {
+    color: #ff5555;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-body li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.modal-body li::before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.85rem;
+}
+
+/* Secciones del changelog (Contenido / Mejoras) */
+.changelog-section {
+    margin-bottom: 18px;
+}
+
+.changelog-section:last-child {
+    margin-bottom: 0;
+}
+
+.changelog-section-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--live-action);
+    border-bottom: 1px solid rgba(255, 232, 31, 0.2);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* =========================================
+   SCROLLBAR PERSONALIZADO PARA EL MENÚ (AMARILLO)
+   ========================================= */
+
+/* Para navegadores basados en WebKit (Chrome, Edge, Safari, Opera moderno) */
+.sidebar-links::-webkit-scrollbar {
+    width: 6px;
+    /* Hacemos la barra de scroll más fina y elegante */
+}
+
+.sidebar-links::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    /* Fondo oscuro para el carril */
+    border-radius: 4px;
+}
+
+.sidebar-links::-webkit-scrollbar-thumb {
+    background-color: var(--live-action);
+    /* La barra en sí será amarilla */
+    border-radius: 4px;
+}
+
+.sidebar-links::-webkit-scrollbar-thumb:hover {
+    background-color: #ffeb3b;
+    /* Un amarillo un poco más brillante si pasas el mouse */
+}
+
+/* Para Mozilla Firefox */
+.sidebar-links {
+    scrollbar-width: thin;
+    scrollbar-color: var(--live-action) rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* =========================================
+   INFORMACIÓN DEL CREADOR (FOOTER)
+   ========================================= */
+.creator-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255, 232, 31, 0.2);
+    /* Línea divisoria sutil */
+    width: 100%;
+    max-width: 600px;
+}
+
+.creator-info p {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    margin-bottom: 8px !important;
+}
+
+.creator-info strong {
+    color: var(--live-action);
+    letter-spacing: 1px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-links a,
+.contact-links .discord-tag,
+.contact-links .gmail-tag {
+    color: #a0a0a0 !important;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    border-bottom: none !important;
+}
+
+/* Efectos hover para los contactos */
+.contact-links a:hover {
+    color: #4fc3f7 !important;
+    text-shadow: 0 0 8px rgba(79, 195, 247, 0.5);
+}
+
+.contact-links .discord-tag:hover {
+    color: #5865F2 !important;
+    text-shadow: 0 0 8px rgba(88, 101, 242, 0.5);
+    cursor: default;
+}
+
+.contact-links .gmail-tag:hover {
+    color: #EA4335 !important;
+    text-shadow: 0 0 8px rgba(234, 67, 53, 0.5);
+    cursor: default;
+}
+
+.contact-links i {
+    font-size: 1.1rem;
+}

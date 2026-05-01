@@ -1,0 +1,21 @@
+{
+  "name": "Cronología Canon Star Wars",
+  "short_name": "Star Wars",
+  "description": "Guía completa del universo de Star Wars en orden cronológico",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#ffe81f",
+  "icons": [
+    {
+      "src": "assets/logo/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

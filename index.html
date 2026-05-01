@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronología Canon de Star Wars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- ==========================================
+         NUEVA BARRA SUPERIOR (MÓVIL)
+         ========================================== -->
+    <div class="top-bar-bg"></div>
+    <!-- ==========================================
+         BOTONES FLOTANTES SUPERIORES
+         ========================================== -->
+    <button class="menu-toggle" aria-label="Toggle menu" title="Menú">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="install-pwa-container" id="install-pwa-container" style="display: none;">
+        <span class="install-tooltip-icon" data-tooltip="Instala la app para consultarla 100% sin internet.">
+            <i class="fas fa-question-circle"></i>
+        </span>
+        <button id="btn-install-pwa" class="btn-install">
+            <i class="fas fa-download"></i> Instalar App
+        </button>
+    </div>
+
+    <!-- ==========================================
+         NUEVO SIDEBAR (MENÚ LATERAL)
+         ========================================== -->
+    <nav class="sidebar" id="sidebar">
+        <!-- 1. Perfil del Usuario -->
+        <div class="sidebar-profile">
+            <div class="profile-img-container">
+                <label for="profile-upload" class="profile-img-label" title="Cambiar foto">
+                    <!-- Coloca tu imagen de perfil por defecto en esta ruta dentro de tu carpeta -->
+                    <img src="assets/img/profile-placeholder.jpg" id="profile-img" alt="Perfil">
+                    <div class="profile-img-overlay"><i class="fas fa-camera"></i></div>
+                </label>
+                <input type="file" id="profile-upload" accept="image/*" hidden>
+            </div>
+            <div class="profile-name" id="profile-name" contenteditable="true" spellcheck="false"
+                title="Haz clic para editar tu nombre">Tu Nombre Jedi</div>
+
+            <!-- NUEVO: Selector de Perfiles -->
+            <div class="profile-selector-container">
+                <select id="profile-selector" class="profile-select" title="Cambiar de perfil"></select>
+                <button id="btn-add-profile" class="btn-icon" title="Agregar nuevo perfil"><i
+                        class="fas fa-user-plus"></i></button>
+                <button id="btn-delete-profile" class="btn-icon" title="Borrar perfil actual"><i
+                        class="fas fa-user-minus"></i></button>
+            </div>
+        </div>
+
+        <!-- 2. Enlaces de Eras (Centro) -->
+        <div class="sidebar-links">
+            <ul>
+                <li><a href="#era-republica"><i class="fas fa-jedi"></i> Era de la República</a></li>
+                <li><a href="#era-imperio"><i class="fab fa-empire"></i> Era del Imperio</a></li>
+                <li><a href="#era-nueva-republica"><i class="fab fa-rebel"></i> Era de la Nueva República</a></li>
+                <li><a href="#era-resistencia"><i class="fas fa-fighter-jet"></i> Era de la Resistencia</a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Versión y Novedades (Abajo) -->
+        <div class="sidebar-footer">
+            <div class="version-footer-row">
+                <span class="version-info">Versión actual: <span id="app-version-display"></span></span>
+                <button id="btn-changelog" class="btn-icon-changelog" title="¿Qué hay de nuevo?">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         ENCABEZADO PRINCIPAL (HEADER)
+         ========================================== -->
+    <header>
+        <div class="container">
+            <h1>Cronología Canon de Star Wars</h1>
+            <p>Guía completa para explorar el universo de Star Wars en orden cronológico</p>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         FILTROS DE CONTENIDO
+         ========================================== -->
+    <div class="filtros-container">
+        <div class="container">
+            <h3>Filtrar contenido:</h3>
+
+            <button class="filtro-toggle" aria-label="Mostrar/Ocultar filtros" title="Mostrar/Ocultar filtros">
+                <i class="fas fa-filter"></i>
+            </button>
+
+            <div class="filtros">
+                <label class="filtro-option">
+                    <input type="checkbox" class="filtro-checkbox" data-category="movie" checked>
+                    <span class="filtro-label pelicula">Películas</span>
+                </label>
+
+                <label class="filtro-option">
+                    <input type="checkbox" class="filtro-checkbox" data-category="live-action" checked>
+                    <span class="filtro-label live-action">Series Live Action</span>
+                </label>
+
+                <label class="filtro-option">
+                    <input type="checkbox" class="filtro-checkbox" data-category="animated" checked>
+                    <span class="filtro-label animada">Series Animadas</span>
+                </label>
+
+                <label class="filtro-option">
+                    <input type="checkbox" class="filtro-checkbox" data-category="cortos" checked>
+                    <span class="filtro-label cortos">Cortos</span>
+                </label>
+
+                <label class="filtro-option">
+                    <input type="checkbox" class="filtro-checkbox" data-category="game" checked>
+                    <span class="filtro-label juego">Juegos</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL (LÍNEA DE TIEMPO)
+         ========================================== -->
+    <main class="container">
+        <section id="intro">
+            <h2>Bienvenido a la Guía Cronológica de Star Wars</h2>
+            <p>Esta plataforma te acompañará paso a paso a través del vasto universo audiovisual de Star Wars en su
+                <strong>orden histórico correcto</strong> (Canon actual), desde la Alta República hasta el conflicto con
+                la Primera Orden.
+            </p>
+            <p>El contenido está cuidadosamente organizado por eras históricas para que no te pierdas ningún detalle de
+                la trama galáctica.</p>
+
+            <div class="intro-tracker-help">
+                <i class="fas fa-check-circle"></i>
+                <p><strong>Lleva el control de tu maratón:</strong> Utiliza las casillas que aparecen junto a cada
+                    película, serie o capítulo para marcar el contenido que ya viste. ¡Tu progreso se guardará
+                    automáticamente en tu dispositivo para que retomes la historia cuando quieras!</p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span class="progress-title">Progreso del Canon</span>
+                    <span class="progress-percentage" id="progress-text">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-message" id="progress-message">¡Comienza tu viaje por la galaxia!</p>
+            </div>
+        </section>
+
+        <section id="era-republica">
+            <h2>Era de la República</h2>
+            <p class="era-description"></p>
+        </section>
+
+        <section id="era-imperio">
+            <h2>Era del Imperio</h2>
+        </section>
+
+        <section id="era-nueva-republica">
+            <h2>Era de la Nueva República</h2>
+        </section>
+
+        <section id="era-resistencia">
+            <h2>Era de la Resistencia y la Primera Orden</h2>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         PIE DE PÁGINA
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <p>Esta es una guía no oficial de la cronología canon de Star Wars. Todos los derechos pertenecen a Disney y
+                Lucasfilm.</p>
+            <p>El contenido aquí presentado es solo para fines educativos y de orientación.</p>
+
+            <!-- NUEVO: Sección del creador -->
+            <div class="creator-info">
+                <p>Creado por <strong>Onix Delgado</strong></p>
+                <div class="contact-links">
+                    <span class="gmail-tag" title="Correo electrónico">
+                        <i class="fas fa-envelope"></i> onixdelgado95@gmail.com
+                    </span>
+                    <span class="discord-tag" title="Usuario de Discord">
+                        <i class="fab fa-discord"></i> onixdelgado
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         MODAL DE CAMBIOS (CHANGELOG)
+         ========================================== -->
+    <div id="changelog-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Notas del Parche (<span id="modal-version"></span>)</h3>
+                <button id="close-changelog" class="btn-close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="changelog-section" id="changelog-section-content">
+                    <h4 class="changelog-section-title"><i class="fas fa-film"></i> Contenido agregado</h4>
+                    <ul id="changelog-list-content">
+                        <!-- Ítems inyectados desde JS -->
+                    </ul>
+                </div>
+                <div class="changelog-section" id="changelog-section-mejoras">
+                    <h4 class="changelog-section-title"><i class="fas fa-wrench"></i> Mejoras y arreglos</h4>
+                    <ul id="changelog-list-mejoras">
+                        <!-- Ítems inyectados desde JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Volver Arriba -->
+    <button id="btn-volver-arriba" aria-label="Volver arriba" title="Volver al inicio">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- TOAST (Notificación de sistema) -->
+    <div id="toast-notification" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="datos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
