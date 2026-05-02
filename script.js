@@ -151,6 +151,78 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            // Manejo de grupos desplegables (Acordeones)
+            if (item.tipo === "grupo-desplegable") {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'grupo-desplegable-container';
+                if (item.categoria) wrapper.dataset.categories = item.categoria;
+
+                let añoHTML = '';
+                if (item.año) {
+                    const esDBY = item.año.includes("DBY");
+                    const claseColor = esDBY ? "badge-dby" : "badge-aby";
+                    añoHTML = `<span class="badge-year ${claseColor}" style="margin-left: auto;">${item.año}</span>`;
+                }
+
+                let itemsHTML = '';
+                item.items.forEach((subItem, subIndex) => {
+                    let arrayImagenes = [];
+                    if (subItem.imagenes) arrayImagenes = subItem.imagenes;
+                    else if (subItem.imagen) arrayImagenes = [subItem.imagen];
+
+                    let posterHTML = '';
+                    if (arrayImagenes.length > 0) {
+                        const checkId = `toggle-poster-grp-${itemIndex}-${subIndex}`;
+                        const textoBoton = "Ver";
+                        const iconoBoton = arrayImagenes.length > 1 ? "fas fa-images" : "fas fa-image";
+
+                        let imagenesHTML = '';
+                        arrayImagenes.forEach((imgSrc) => {
+                            imagenesHTML += `<img src="${imgSrc}" alt="Portada descriptiva" class="timeline-poster" loading="lazy">`;
+                        });
+
+                        posterHTML = `
+                            <div class="poster-container" style="float: none; margin-left: 0; margin-top: 10px; margin-bottom: 0;">
+                                <input type="checkbox" id="${checkId}" class="poster-toggle-check">
+                                <label for="${checkId}" class="btn-ver-portada"><i class="${iconoBoton}"></i> ${textoBoton}</label>
+                                <div class="poster-wrapper">
+                                    ${imagenesHTML}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    itemsHTML += `
+                        <div class="desplegable-item" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                            <div class="era-description" style="margin-bottom: 0; flex-grow: 1; min-width: 0;">
+                                ${subItem.texto}
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; margin-left: 15px; position: relative;">
+                                ${posterHTML}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                wrapper.innerHTML = `
+                    <details class="timeline-details">
+                        <summary class="timeline-summary">
+                            <div class="summary-content" style="display: flex; align-items: center; flex-grow: 1; gap: 15px;">
+                                <i class="fas fa-chevron-down summary-icon"></i>
+                                <h3 style="margin: 0; font-size: 1.1rem; color: var(--live-action);">${item.titulo}</h3>
+                            </div>
+                            ${añoHTML}
+                        </summary>
+                        <div class="details-content" style="padding: 0 20px 5px 20px;">
+                            ${itemsHTML}
+                        </div>
+                    </details>
+                `;
+
+                seccion.appendChild(wrapper);
+                return;
+            }
+
             const article = document.createElement('article');
             article.className = `timeline-item ${item.categoria}`;
             article.dataset.categories = item.categoria;

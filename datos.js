@@ -484,14 +484,23 @@ const timelineData = [
     },
     {
         eraId: "era-republica",
-        tipo: "descripcion",
+        tipo: "grupo-desplegable",
         año: "19 ABY",
-        texto: '<strong>Eventos clave que trajo este fin de la guerra:</strong><br><br>• <strong>Duración de la Guerra:</strong> La Guerra de los Clones duró 3 años (es decir, el tiempo transcurrido entre la Película 2 y la Película 3).<br><br>• <strong>La caída de la República:</strong> Palpatine proclama el Imperio Galáctico reemplazando a la República, autoproclamándose Emperador.'
-    },
-    {
-        eraId: "era-republica",
-        tipo: "descripcion",
-        texto: '• <strong>La creación del Inquisitorius:</strong> Tras la ejecución de la Orden 66, Palpatine establece esta orden secreta bajo el liderazgo del "Gran Inquisidor". Los Inquisidores son Jedi caídos al lado oscuro convertidos en cazadores del Imperio.'
+        titulo: "Eventos clave que trajo este fin de la guerra",
+        items: [
+            {
+                imagenes: ["assets/portadas/extras/duracion-guerra.webp"],
+                texto: '• <strong>Duración de la Guerra:</strong> La Guerra de los Clones duró 3 años (es decir, el tiempo transcurrido entre la Película 2 y la Película 3).'
+            },
+            {
+                imagenes: ["assets/portadas/extras/caida-republica.webp"],
+                texto: '• <strong>La caída de la República:</strong> Palpatine proclama el Imperio Galáctico reemplazando a la República, autoproclamándose Emperador.'
+            },
+            {
+                imagenes: ["assets/portadas/extras/creacion-inquisitorius.webp"],
+                texto: '• <strong>La creación del Inquisitorius:</strong> Tras la ejecución de la Orden 66, Palpatine establece esta orden secreta bajo el liderazgo del "Gran Inquisidor". Los Inquisidores son Jedi caídos al lado oscuro convertidos en cazadores del Imperio.'
+            }
+        ]
     },
     // --- INICIO DE LA ERA DEL IMPERIO ---
     {
@@ -558,31 +567,26 @@ const timelineData = [
     },
     {
         eraId: "era-imperio",
-        tipo: "descripcion",
-        imagenes: [
-            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada1.webp"
-        ],
+        tipo: "grupo-desplegable",
         categoria: "animated",
-        texto: '<strong>Contexto previo (Novela "Discípulo Oscuro"):</strong><br><br>• <strong>Un amor trágico:</strong> Al final de la Guerra de los Clones, Asajj Ventress se enamoró en secreto del Jedi Quinlan Vos.'
-    },
-    {
-        eraId: "era-imperio",
-        tipo: "descripcion",
-        imagenes: [
-            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada5.webp",
-            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada4.webp"
-        ],
-        categoria: "animated",
-        texto: '• <strong>El sacrificio:</strong> Durante un enfrentamiento en el planeta Christophsis, el Conde Dooku intentó asesinar a Quinlan Vos con rayos de la Fuerza. Ventress se interpuso y sacrificó su propia vida para salvar al hombre que amaba.'
-    },
-    {
-        eraId: "era-imperio",
-        tipo: "descripcion",
-        imagenes: [
-            "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada6.webp"
-        ],
-        categoria: "animated",
-        texto: '• <strong>Su funeral:</strong> Obi-Wan Kenobi y Quinlan Vos llevaron su cuerpo de regreso a Dathomir, donde fue sepultada en las aguas mágicas junto a las demás Hermanas de la Noche caídas.'
+        titulo: 'Contexto previo (Novela "Discípulo Oscuro")',
+        items: [
+            {
+                imagenes: ["assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada1.webp"],
+                texto: '• <strong>Un amor trágico:</strong> Al final de la Guerra de los Clones, Asajj Ventress se enamoró en secreto del Jedi Quinlan Vos.'
+            },
+            {
+                imagenes: [
+                    "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada5.webp",
+                    "assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada4.webp"
+                ],
+                texto: '• <strong>El sacrificio:</strong> Durante un enfrentamiento en el planeta Christophsis, el Conde Dooku intentó asesinar a Quinlan Vos con rayos de la Fuerza. Ventress se interpuso y sacrificó su propia vida para salvar al hombre que amaba.'
+            },
+            {
+                imagenes: ["assets/portadas/animacion/historias-inframundo/novelas/discipulo-oscuro-portada6.webp"],
+                texto: '• <strong>Su funeral:</strong> Obi-Wan Kenobi y Quinlan Vos llevaron su cuerpo de regreso a Dathomir, donde fue sepultada en las aguas mágicas junto a las demás Hermanas de la Noche caídas.'
+            }
+        ]
     },
     {
         eraId: "era-imperio",
@@ -650,20 +654,24 @@ const timelineData = [
     },
     {
         eraId: "era-imperio",
-        tipo: "descripcion",
+        tipo: "grupo-desplegable",
         año: "13 ABY",
-        imagenes: [
-            "assets/portadas/peliculas/prologo-rogue-one.webp"
-        ],
-        texto: '<strong>En este punto suceden 2 cosas. Es decir, 6 años después de "La Venganza de los Sith" (Película 3):</strong><br><br><strong>1. Prólogo de "Rogue One":</strong> <em>(primeros 8 minutos de la película)</em><br>Muestra a Jyn Erso de niña. <span class="note"><br>*No es necesario ver la película en este punto</span>.'
+        titulo: 'En este punto suceden 2 cosas (6 años después de "La Venganza de los Sith"):',
+        items: [
+            {
+                imagenes: ["assets/portadas/peliculas/prologo-rogue-one.webp"],
+                texto: '<strong>1. Prólogo de "Rogue One":</strong> <em>(primeros 8 minutos de la película)</em><br>Muestra a Jyn Erso de niña. <span class="note"><br>*No es necesario ver la película en este punto</span>.'
+            },
+            {
+                imagenes: ["assets/portadas/peliculas/prologo-han-solo.webp"],
+                texto: '<strong>2. Prólogo de "Han Solo":</strong> <em>(primeros 14 minutos de la película)</em><br>Muestra la juventud de Han Solo en el planeta Corellia, antes de su reclutamiento imperial.'
+            }
+        ]
     },
     {
         eraId: "era-imperio",
         tipo: "descripcion",
-        imagenes: [
-            "assets/portadas/peliculas/prologo-han-solo.webp"
-        ],
-        texto: '<strong>2. Prólogo de "Han Solo":</strong> <em>(primeros 14 minutos de la película)</em><br>Muestra la juventud de Han Solo en el planeta Corellia, antes de su reclutamiento imperial.'
+        texto: 'Pasa 3 año...'
     },
     {
         eraId: "era-imperio",
@@ -960,7 +968,7 @@ const timelineData = [
             "assets/portadas/animacion/rebels/rebels.webp",
         ],
         titulo: 'Serie "Rebels" (Temporada 4)',
-        eventos: [{ tiempo: 'Sucede 18 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 1 año antes de la película de Rogue One', descripcion: '- El epílogo del último capítulo (a partir del minuto 42:00) da un salto hacia el futuro hasta el <span class="badge-year badge-dby badge-inline" data-tooltip="DBY: Después de la Batalla de Yavin">9 DBY</span> (5 años después de "El Retorno del Jedi"). Esa escena final conecta directamente con la serie Live-Action de Ahsoka.' }]
+        eventos: [{ tiempo: 'Sucede 18 años después de "La Venganza de los Sith" (Película 3),<br>Es decir, 1 año antes de la película de Rogue One', descripcion: '- El epílogo del último capítulo (a partir del minuto 42:00) da un salto hacia el futuro hasta el <span class="badge-year badge-dby badge-inline" data-tooltip="DBY: Después de la Batalla de Yavin">9 DBY</span> Es decir, 5 años después de "El Retorno del Jedi" (Película 6). Esa escena final conecta directamente con la serie Live-Action de Ahsoka.' }]
     },
     {
         eraId: "era-imperio",

@@ -2803,6 +2803,64 @@ main {
     cursor: default;
 }
 
+/* =========================================
+   ACORDEONES / GRUPOS DESPLEGABLES
+   ========================================= */
+.grupo-desplegable-container {
+    margin-bottom: 1.5rem;
+}
+
+.timeline-details {
+    background-color: rgba(30, 30, 30, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.timeline-details:hover {
+    border-color: rgba(255, 232, 31, 0.3);
+}
+
+.timeline-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    list-style: none; /* Elimina la flecha nativa */
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: background-color 0.3s ease;
+}
+
+.timeline-summary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-summary::-webkit-details-marker {
+    display: none;
+}
+
+.summary-icon {
+    transition: transform 0.3s ease;
+    color: #888;
+}
+
+.timeline-details[open] .summary-icon {
+    transform: rotate(180deg);
+    color: var(--live-action);
+}
+
+.timeline-details[open] .timeline-summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.desplegable-item:first-child {
+    border-top: none !important;
+    padding-top: 0 !important;
+}
+
 .contact-links i {
     font-size: 1.1rem;
 }
