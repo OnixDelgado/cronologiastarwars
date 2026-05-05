@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     let imagenesHTML = '';
                     arrayImagenes.forEach((imgSrc) => {
-                        imagenesHTML += `<img src="${imgSrc}" alt="Portada descriptiva" class="timeline-poster" loading="lazy">`;
+                        imagenesHTML += `<img src="${imgSrc}" alt="Portada descriptiva" class="timeline-poster">`;
                     });
 
                     // ESTE ES EL CAMBIO CLAVE: Le quitamos el float y le damos un margen superior
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let imagenesHTML = '';
                 arrayImagenes.forEach((imgSrc) => {
-                    imagenesHTML += `<img src="${imgSrc}" alt="Portada de ${item.titulo}" class="timeline-poster" loading="lazy">`;
+                    imagenesHTML += `<img src="${imgSrc}" alt="Portada de ${item.titulo}" class="timeline-poster">`;
                 });
 
                 posterHTML = `
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // LÓGICA DE ACTUALIZACIONES (PWA) Y NOTAS DEL PARCHE
     // =================================================================
 
-    // 1. CONFIGURACIÓN MANUAL (Debes cambiar esto en cada actualización)
+    // 1. CONFIGURACIÓN MANUAL (Dds cambiar esto en cada actualización)
     const APP_VERSION = "v1.0.0";
 
     const APP_CHANGELOG_CONTENT = [
