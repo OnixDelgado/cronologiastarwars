@@ -112,7 +112,7 @@ const timelineData = [
         imagenes: [
             "assets/portadas/peliculas/el-ataque-de-los-clones-episodio2.webp",
         ],
-        eventos: [{ tiempo: 'Sucede 10 años después de "La Amenaza Fantasma" (Película 1)', descripcion: '- Comienza la Guerra de los Clones' }]
+        eventos: [{ tiempo: 'Sucede 10 años después de "La Amenaza Fantasma" (Película 1)', descripcion: '- Comienza la Guerra de los Clones.' }]
     },
     {
         eraId: "era-republica",
@@ -153,7 +153,7 @@ const timelineData = [
             "assets/portadas/animacion/clone-wars/pelicula-clone-wars.webp",
         ],
         titulo: 'Película: "La Guerra de los Clones" (Película Animada)',
-        eventos: [{ tiempo: 'Sucede a continuación del Capítulo 16 de la Temporada 1 de The Clone Wars', descripcion: '- Se une un nuevo integrante a Obi-Wan Kenobi y Anakin Skywalker' }]
+        eventos: [{ tiempo: 'Sucede a continuación del Capítulo 16 de la Temporada 1 de The Clone Wars', descripcion: '- Se une un nuevo integrante a Obi-Wan Kenobi y Anakin Skywalker.' }]
     },
     {
         eraId: "era-republica",
@@ -388,7 +388,7 @@ const timelineData = [
         ],
         titulo: '4 Cómics de Darth Maul llamados "Hijo de Dathomir"',
         eventos: [
-            { tiempo: 'Explica qué pasa con Darth Maul luego de ser capturado por su Ex-Maestro Darth Sidious', descripcion: '- Hay un video narrado en el canal de Youtube de Star Wars Theory Español.<br><br><div class="youtube-video-container"><iframe src="https://www.youtube.com/embed/kxkZes4VwGo" title="Hijo de Dathomir - Cómic COMPLETO NARRADO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>' }
+            { tiempo: 'Explica qué pasa con Darth Maul luego de ser capturado por su Ex-Maestro Darth Sidious', descripcion: '- Hay un video narrado en el canal de Youtube de Star Wars Theory Español.<br><br><div class="youtube-video-container"><iframe src="https://www.youtube.com/embed/kxkZes4VwGo" title="Hijo de Dathomir - Cómic COMPLETO NARRADO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>.' }
         ]
     },
     {
@@ -681,7 +681,7 @@ const timelineData = [
         imagenes: [
             "assets/portadas/peliculas/han-solo.webp",
         ],
-        eventos: [{ tiempo: '9 años después de "La Venganza de los Sith" (Película 3)', descripcion: '- Muestra la vida de Han Solo en su juventud' }]
+        eventos: [{ tiempo: '9 años después de "La Venganza de los Sith" (Película 3)', descripcion: '- Muestra la vida de Han Solo en su juventud.' }]
     },
     {
         eraId: "era-imperio",
@@ -1068,7 +1068,7 @@ const timelineData = [
             "assets/portadas/juegos/outlaws.webp",
         ],
         titulo: 'Juego de “STAR WARS Outlaws”',
-        eventos: [{ tiempo: 'Sucede entre "El Imperio Contraataca" (Película 5) y "El Retorno del Jedi" (Película 6).', descripcion: '- Muestra la vida de Kay Vess, una ladrona del planeta Cantonica (el planeta casino)' }]
+        eventos: [{ tiempo: 'Sucede entre "El Imperio Contraataca" (Película 5) y "El Retorno del Jedi" (Película 6).', descripcion: '- Muestra la vida de Kay Vess, una ladrona del planeta Cantonica (el planeta casino).' }]
     },
     {
         eraId: "era-imperio",
@@ -1143,7 +1143,13 @@ const timelineData = [
             "assets/portadas/juegos/squadrons.webp",
         ],
         titulo: 'Juego de “Star Wars Squadrons”',
-        eventos: [{ tiempo: 'Sucede 4 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- El prólogo del juego sucede después de la destrucción de Alderaan (El planeta de Leia que destruyen en la Película 4).<br><br>- El resto del modo historia sucede 4 años después de "El Retorno del Jedi" (Película 6).' }]
+        eventos: [{ tiempo: 'Sucede 1 año después de "El Retorno del Jedi" (Película 6)', descripcion: '- El prólogo del juego sucede después de la destrucción de Alderaan (El planeta de Leia que destruyen en la Película 4).<br><br>- El resto del modo historia sucede 4 años después de "El Retorno del Jedi" (Película 6).' }]
+    },
+    {
+        eraId: "era-imperio",
+        categoria: "game",
+        tipo: "descripcion",
+        texto: 'Pasa 1 año...'
     },
     {
         eraId: "era-imperio",
@@ -1153,7 +1159,7 @@ const timelineData = [
             "assets/portadas/juegos/battlefront-2.webp",
         ],
         titulo: 'Juego "STAR WARS Battlefront II"',
-        eventos: [{ tiempo: 'Comienza durante "El Retorno del Jedi" (Película 6) y finaliza 1 año después con la Batalla de Jakku.', descripcion: '- Muestra la historia de Iden Versio, comandante del Escuadrón Infernal del Imperio.<br><br><span class="note"><strong>*Nota 1:</strong> El DLC "Resurrección" de este juego ocurre varias décadas más adelante (en la Era de la Resistencia) y se encuentra detallado más abajo en esta guía.</span><br><br><span class="note"><strong>*Nota 2:</strong> Si te preguntas por qué no está "Battlefront I" en esta lista, es porque el primer juego se enfocó en el multijugador y no cuenta con un modo campaña/historia canon.</span>' }]
+        eventos: [{ tiempo: 'Comienza durante "El Retorno del Jedi" (Película 6) y finaliza 1 año después con la Batalla de Jakku.', descripcion: '- Muestra la historia de Iden Versio, comandante del Escuadrón Infernal del Imperio.<br><br><span class="note"><strong>*Nota 1:</strong> El DLC "Resurrección" de este juego ocurre varias décadas más adelante (en la Era de la Resistencia) y se encuentra detallado más abajo en esta guía.</span><br><br><span class="note"><strong>*Nota 2:</strong> Si te preguntas por qué no está "Battlefront I" en esta lista, es porque el primer juego se enfocó en el multijugador y no cuenta con un modo campaña/historia canon.</span>.' }]
     },
     // --- INICIO DE LA ERA DE LA NUEVA REPÚBLICA ---
     {
@@ -1326,7 +1332,7 @@ const timelineData = [
             "assets/portadas/animacion/resistencia/la-resistencia-temp1-cap21.webp",
         ],
         titulo: 'Serie "La Resistencia" (Temporada 1) - Desde los Capítulos 20 al 21',
-        eventos: [{ tiempo: 'Sucede 30 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- Muestra qué hace Kazuda Xiono (Kaz) al final de "El Despertar de la Fuerza" (Película 7)' }]
+        eventos: [{ tiempo: 'Sucede 30 años después de "El Retorno del Jedi" (Película 6)', descripcion: '- Muestra qué hace Kazuda Xiono (Kaz) al final de "El Despertar de la Fuerza" (Película 7).' }]
     },
     {
         eraId: "era-resistencia",
